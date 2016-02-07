@@ -21,13 +21,19 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 $font-family-sans-serif:          "Lato", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif !default;
 $font-family-light-sans-serif:    "Lato", "HelveticaNeue-Light", "Roboto-Light", "Segoe UI-Light", sans-serif-light !default;
 $headings-font-weight:            bold;
-$stable:                #BBCDF3;
+
+$stable:  #BBCDF3;
+$positive: #1E99C9;
+
 $button-stable-text: #fff;
 
 $border-radius-base:              0px;
 $border-radius-large:             0px;
 $border-radius-small:             0px;
 
+$content-padding:                 20px ;
+
+// $input-color-placeholder:        #888;
 
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
@@ -38,6 +44,13 @@ body {
 
 h1 {
   font-size: 24px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  background: #EBEBEB;
+  font-size: 20px;
+  padding: 20px 30px;
 }
 
 .button {
@@ -45,3 +58,11 @@ h1 {
   border-radius: none !important;
 }
 
+input[type="text"], label.item {
+  background: #EBEBEB;
+  border: none;
+}
+
+label.item-checkbox {
+  background: none;
+}

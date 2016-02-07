@@ -1,0 +1,24 @@
+<ion-view hide-nav-bar="true">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <form class="list"></form>
+        <h1>Fyll i ditt mobilnummer</h1>
+        <form class="list">
+            <label class="item item-input">
+                <span class="input-label">Birth year</span>
+                <input type="text" ng-model="user.birthYear" placeholder="1984">
+            </label>
+
+            <label class="item item-input">
+                <span class="input-label">Sex</span>
+                <input type="checkbox" ng-model="user.sex" ng-value="male">
+                <input type="radio" ng-model="user.sex" ng-value="female">
+            </label>
+
+            <label class="item item-input">
+                <span class="input-label">City</span>
+                <input type="text" ng-model="user.location" placeholder="Stockholm">
+            </label>
+        </form>
+        <a ng-click="updateProfile(user)" class="button button-stable button-block ">Fortsätt</a>
+    </ion-content>
+</ion-view>

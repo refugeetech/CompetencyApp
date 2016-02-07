@@ -1,13 +1,12 @@
 <ion-view hide-nav-bar="true">
-    <ion-content overflow-scroll="true" padding="true" class="has-header">
+    <ion-content overflow-scroll="true" padding="true" class="">
         <form class="list"></form>
         <h1>Fyll i ditt mobilnummer</h1>
         <form class="list">
             <label class="item item-input">
-                <span class="input-label">Telefonnummer</span>
-                <input type="text" ng-model="phoneNumber" placeholder="070 123 456">
+                <input type="text" ng-model="phoneNumber" placeholder="Ditt nummer">
             </label>
         </form>
-        <a ng-click="login(phoneNumber)" class="button button-stable button-block ">Fortsätt</a>
+        <a ng-click="login(phoneNumber)" class="button button-stable button-block ">Gå vidare</a>
     </ion-content>
 </ion-view>
