@@ -1,12 +1,17 @@
 angular.module('app.controllers', [])
 
-.controller('phoneCtrl', function($scope, UserService) {
+.controller('phoneCtrl', function($scope, $state, UserService) {
   'use strict'
 
-  $scope.login = function () {
-    let result = UserService.login($scope.phoneNumber);
+  $scope.phoneNumber = ''
 
-    console.log('result', result)
+  $scope.login = function (phoneNumber) {
+    return UserService
+      .login(phoneNumber)
+      .then((userId) => $state.go('workAreas'))
+      .catch(error => {
+        console.log(error)
+      })
   }
 })
 
