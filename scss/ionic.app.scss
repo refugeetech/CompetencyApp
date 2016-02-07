@@ -18,6 +18,30 @@ $dark:                            #444 !default;
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
+$font-family-sans-serif:          "Lato", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif !default;
+$font-family-light-sans-serif:    "Lato", "HelveticaNeue-Light", "Roboto-Light", "Segoe UI-Light", sans-serif-light !default;
+$headings-font-weight:            bold;
+$stable:                #BBCDF3;
+$button-stable-text: #fff;
+
+$border-radius-base:              0px;
+$border-radius-large:             0px;
+$border-radius-small:             0px;
+
+
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
+
+body {
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+.button {
+  border: none;
+  border-radius: none !important;
+}
 
