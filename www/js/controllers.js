@@ -7,10 +7,23 @@ angular.module('app.controllers', [])
 
   $scope.login = function (phoneNumber) {
     return UserService
-      .login(phoneNumber)
-      .then((userId) => $state.go('workAreas'))
+      .create(phoneNumber)
+      .then(id => $state.go('user', { id }))
       .catch(error => {
         console.log(error)
+      })
+  }
+})
+
+.controller('userProfileCtrl', function ($scope, UserService) {
+  $scope.user = {}
+
+  $scope.updateProfile = user => {
+    return UserService
+      .update(user)
+      .then(_ => $state.go('workAreas'))
+      .catch(error => {
+        alert(error)
       })
   }
 })
