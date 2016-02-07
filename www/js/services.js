@@ -11,8 +11,8 @@ angular.module('app.services', ['ngResource'])
 .service('UserService', function ($resource) {
   'use strict'
 
-  let User = $resource('http://api.competency.se/users/:id', {
-    id: '@id'
+  let User = $resource('http://api.competency.se/users/:userId', {
+    userId: '@userId'
   }, {
     update: { method: 'PUT' }
   })
@@ -26,7 +26,7 @@ angular.module('app.services', ['ngResource'])
       return user
         .$save()
         .then(data => {
-          user.id = data.userId
+          user.userId = data.userId
           return Promise.resolve(data.userId)
         })
     },
@@ -42,7 +42,7 @@ angular.module('app.services', ['ngResource'])
 
 
       return User
-        .update({ id: user.id }, user)
+        .update({ userId: user.userId }, user)
         .$promise
         .then(_ => Promise.resolve())
     }

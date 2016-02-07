@@ -8,7 +8,7 @@ angular.module('app.controllers', [])
   $scope.login = function (phoneNumber) {
     return UserService
       .create(phoneNumber)
-      .then(id => $state.go('user', { id }))
+      .then(userId => $state.go('user', { userId }))
       .catch(error => {
         console.log(error)
       })
@@ -19,12 +19,12 @@ angular.module('app.controllers', [])
   $scope.user = {}
 
   $scope.updateProfile = user => {
-    user.id = $stateParams.id
+    user.userId = $stateParams.userId
 
     return UserService
       .update(user)
       .then(_ => {
-        $state.go('user.workAreas', { id: user.id })
+        $state.go('user.workAreas', { userId: user.userId })
       })
       .catch(error => {
         alert(error)

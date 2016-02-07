@@ -13,7 +13,7 @@ angular.module('app.routes', [])
       controller: 'phoneCtrl'
     })
     .state('user', {
-      url: '/user/:id',
+      url: '/user/:userId',
       templateUrl: 'templates/userProfile.html',
       controller: 'userProfileCtrl'
     })
