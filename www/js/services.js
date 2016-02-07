@@ -25,20 +25,26 @@ angular.module('app.services', ['ngResource'])
       user.phoneNumber = phoneNumber
       return user
         .$save()
-        // .$promise
-        .then(data => Promise.resolve(data.userId))
+        .then(data => {
+          user.id = data.userId
+          return Promise.resolve(data.userId)
+        })
     },
 
     update: data => {
       if (user) {
         angular.extend(user, data)
-        console.log('user', user)
-        return user.$save()
+      } else {
+        user = data
       }
+
+      console.log('user', user);
+
+
       return User
-        .update(data)
+        .update({ id: user.id }, user)
         .$promise
-        .then(data => Promise.resolve(data.userId))
+        .then(_ => Promise.resolve())
     }
   }
 })

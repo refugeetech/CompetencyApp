@@ -15,13 +15,17 @@ angular.module('app.controllers', [])
   }
 })
 
-.controller('userProfileCtrl', function ($scope, UserService) {
+.controller('userProfileCtrl', function ($scope, UserService, $state, $stateParams) {
   $scope.user = {}
 
   $scope.updateProfile = user => {
+    user.id = $stateParams.id
+
     return UserService
       .update(user)
-      .then(_ => $state.go('workAreas'))
+      .then(_ => {
+        $state.go('user.workAreas', { id: user.id })
+      })
       .catch(error => {
         alert(error)
       })
