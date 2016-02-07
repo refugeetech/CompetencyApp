@@ -17,31 +17,51 @@
         <div class="form-group">
           <label for="" class="label-custom">Arbete</label>
 
-          <input type="checkbox" name="looking_for_work" value=""> Söker arbete
-          <br>
-          <input type="checkbox" name="looking_for_trainee_job" value=""> Söker praktikplats
-          <br>
-          <input type="checkbox" name="looking_for_trainee_job" value=""> Kan arbeta i hela Sverige
+          <label for="looking_for_work">
+            <input type="checkbox" name="looking_for_work" value=""> Söker arbete            
+          </label>
           <br>
 
-          <input type="radio" name="card_or_pin" ng-model="user.card_or_pin" ng-value="card">
-          <span>Har Lma-kort</span>
+          <label for="looking_for_trainee_job">
+            <input type="checkbox" name="looking_for_trainee_job" value=""> Söker praktikplats            
+          </label>
+
+          <br>
+
+          <label for="looking_for_trainee_job">
+            <input type="checkbox" name="looking_for_trainee_job" value=""> Kan arbeta i hela Sverige            
+          </label>
+
+          <br>
+
+          <label for="card_or_pin">
+            <input type="radio" name="card_or_pin" ng-model="user.card_or_pin" ng-value="card">
+            <span>Har Lma-kort</span>            
+          </label>
           <br>
 
           <div class="sub-inputs">
-            <input type="checkbox" name="looking_for_trainee_job" value=""> Har 7-AT-UND
+            <label for="looking_for_trainee_job">
+              <input type="checkbox" name="looking_for_trainee_job" value=""> Har 7-AT-UND              
+            </label>
             <br>
             <input type="text" placeholder="Utgångsdatum">              
           </div>
           <br>
-          <input type="radio" class="no-margin" name="card_or_pin" ng-model="user.card_or_pin" ng-value="pin">
-          <span>Har personnummer</span>
+          
+          <label for="card_or_pin">
+            <input type="radio" class="no-margin" name="card_or_pin" ng-model="user.card_or_pin" ng-value="pin">
+            <span>Har personnummer</span>            
+          </label>
+          
         </div>
 
         <div class="form-group">
           <label class="label-custom">Stad</label>             
           <input type="text" ng-model="user.location">
-          <input type="checkbox" value=""> Hitta min position
+          <label for="find_my_position">
+            <input type="checkbox" name="find_my_position" value=""> Hitta min position
+          </label>
         </div>
         
         <a ng-click="updateProfile(user)" class="button button-stable button-block ">Fortsätt</a>
