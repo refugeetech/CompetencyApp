@@ -15,8 +15,19 @@ angular.module('app.controllers', [])
   }
 })
 
-.controller('workAreasCtrl', function($scope) {
+.controller('workAreasCtrl', function($scope, ProficiencyService) {
+  $scope.branches = [];
 
+  /*
+  ProficiencyService.get(0)
+    .then((profs) => {
+      console.log(profs)
+      $scope.branches = profs
+    })
+    .catch(error => {
+      console.log('ruh-rohes', error)
+    })
+    */
 })
 
 .controller('workCtrl', function($scope) {
@@ -26,4 +37,3 @@ angular.module('app.controllers', [])
 .controller('thankYouCtrl', function($scope) {
 
 })
-

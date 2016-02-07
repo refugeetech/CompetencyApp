@@ -28,3 +28,17 @@ angular.module('app.services', ['ngResource'])
   }
 })
 
+.service('ProficiencyService', function ($resource) {
+  'use strict'
+
+  let Proficiencies = $resource('http://reftec-api.refugeetech.iteamdev.svc.tutum.io:1337/proficiencies/0', {
+    parentId: '@parentId'
+  }, {})
+
+  return {
+    get (parentId) {
+      return {}
+      //return Proficiencies(parentId).$promise
+    }
+  }
+})
