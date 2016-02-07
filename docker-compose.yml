@@ -1,0 +1,4 @@
+reftec-web:
+  ports:
+    - '80:80'
+  build: .
