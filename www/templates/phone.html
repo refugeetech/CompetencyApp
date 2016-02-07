@@ -7,9 +7,9 @@
         <form class="list">
             <label class="item item-input">
                 <span class="input-label">Telefonnummer</span>
-                <input type="text" placeholder="070 123 456">
+                <input type="text" ng-model="phoneNumber" placeholder="070 123 456">
             </label>
         </form>
-        <a ui-sref="workAreas" class="button button-stable button-block ">Fortsätt</a>
+        <a ng-click="login()" class="button button-stable button-block ">Fortsätt</a>
     </ion-content>
 </ion-view>
