@@ -9109,5 +9109,33 @@ input[type="text"], label.item {
   background: #EBEBEB;
   border: none; }
 
+input[type="text"] {
+  width: 100%;
+  padding: 10px; }
+
 label.item-checkbox {
   background: none; }
+
+.label-custom {
+  display: block;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 4px; }
+
+input[type="radio"] {
+  margin-bottom: 10px; }
+  input[type="radio"] + span {
+    margin-left: 5px;
+    margin-right: 10px; }
+
+input[type="checkbox"] {
+  margin-bottom: 10px; }
+
+.form-group {
+  margin: 20px 0; }
+
+.no-margin {
+  margin: 0 !important; }
+
+.sub-inputs {
+  margin-left: 20px; }
