@@ -11,7 +11,7 @@ angular.module('app.services', ['ngResource'])
 .service('UserService', function ($resource) {
   'use strict'
 
-  let User = $resource('http://localhost:1337/users/:id', {
+  let User = $resource('http://reftec-api.refugeetech.iteamdev.svc.tutum.io:1337/users/:id', {
     id: '@id'
   }, {
     update: { method: 'PUT' }
