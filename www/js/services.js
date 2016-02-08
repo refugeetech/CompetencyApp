@@ -9,50 +9,44 @@ angular.module('app.services', ['ngResource'])
 }])
 
 .service('UserService', function ($resource) {
-  'use strict'
-
-  let User = $resource('http://api.competency.se/users/:userId', {
+  var User = $resource('http://api.competency.se/users/:userId', {
     userId: '@userId'
   }, {
     update: { method: 'PUT' }
   })
 
-  let user
+  var user
 
   return {
-    create: phoneNumber => {
+    create: function (phoneNumber) {
       user = new User()
       user.phoneNumber = phoneNumber
       return user
         .$save()
-        .then(data => {
+        .then(function (data) {
           user.userId = data.userId
           return Promise.resolve(data.userId)
         })
     },
 
-    update: data => {
+    update: function (data) {
       if (user) {
         angular.extend(user, data)
       } else {
         user = data
       }
-
-      console.log('user', user);
-
-
       return User
         .update({ userId: user.userId }, user)
         .$promise
-        .then(_ => Promise.resolve())
+        .then(function () {
+          return Promise.resolve()
+        })
     }
   }
 })
 
 .service('ProficiencyService', function ($resource) {
-  'use strict'
-
-  let Proficiencies = $resource('http://reftec-api.refugeetech.iteamdev.svc.tutum.io:1337/proficiencies/0', {
+  var Proficiencies = $resource('http://reftec-api.refugeetech.iteamdev.svc.tutum.io:1337/proficiencies/0', {
     parentId: '@parentId'
   }, {})
 

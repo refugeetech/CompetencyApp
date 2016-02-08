@@ -8,8 +8,10 @@ angular.module('app.controllers', [])
   $scope.login = function (phoneNumber) {
     return UserService
       .create(phoneNumber)
-      .then(userId => $state.go('user', { userId }))
-      .catch(error => {
+      .then(function (userId) {
+        return $state.go('user', { userId })
+      })
+      .catch(function (error) {
         console.log(error)
       })
   }
@@ -18,15 +20,15 @@ angular.module('app.controllers', [])
 .controller('userProfileCtrl', function ($scope, UserService, $state, $stateParams) {
   $scope.user = {}
 
-  $scope.updateProfile = user => {
+  $scope.updateProfile = function (user) {
     user.userId = $stateParams.userId
 
     return UserService
       .update(user)
-      .then(_ => {
-        $state.go('user.workAreas', { userId: user.userId })
+      .then(function () {
+        return $state.go('user.workAreas', { userId: user.userId })
       })
-      .catch(error => {
+      .catch(function (error) {
         alert(error)
       })
   }
