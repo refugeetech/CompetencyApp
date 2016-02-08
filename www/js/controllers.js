@@ -40,17 +40,6 @@ angular.module('app.controllers', [])
   $scope.profs = ProficiencyService.query().$promise.then(function (data) {
     $scope.branches = data;
   });
-/*
-  console.log(ProficiencyService.get)
-  ProficiencyService.get(0)
-    .then((profs) => {
-      console.log(profs)
-      $scope.branches = profs
-    })
-    .catch(error => {
-      console.log('ruh-rohes', error)
-    })
-    */
 })
 
 .controller('workCtrl', function($scope) {
