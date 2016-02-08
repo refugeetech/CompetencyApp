@@ -1,15 +1,10 @@
 <ion-view hide-nav-bar="true">
     <ion-content overflow-scroll="true" padding="false" class="">
         <div class="padding">
-          <h1>Välj de yrkesområden som du har erfarenhet ifrån</h1>          
+          <h1>Välj de yrkesområden som du har erfarenhet ifrån</h1>
         </div>
-        {{branches}}
         <ion-list>
-            <ion-checkbox data-ng-repeat="branch in branches">{{branch.name}}</ion-checkbox>
-            <ion-checkbox>Branch 1</ion-checkbox>
-            <ion-checkbox>Branch 1</ion-checkbox>
-            <ion-checkbox>Branch 1</ion-checkbox>
-            <ion-checkbox>Branch 1</ion-checkbox>
+            <ion-checkbox data-ng-repeat="branch in branches">{{branch._source.namn}}</ion-checkbox>
         </ion-list>
         <div class="padding">
           <a ui-sref="work" class="button button-stable button-block ">Fortsätt</a>

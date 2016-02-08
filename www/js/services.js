@@ -9,7 +9,7 @@ angular.module('app.services', ['ngResource'])
 }])
 
 .service('UserService', function ($resource) {
-  var User = $resource('http://api.competency.se/users/:userId', {
+  var User = $resource('http://localhost:1337/users/:userId', {
     userId: '@userId'
   }, {
     update: { method: 'PUT' }
@@ -46,14 +46,9 @@ angular.module('app.services', ['ngResource'])
 })
 
 .service('ProficiencyService', function ($resource) {
-  var Proficiencies = $resource('http://reftec-api.refugeetech.iteamdev.svc.tutum.io:1337/proficiencies/0', {
-    parentId: '@parentId'
-  }, {})
-
-  return {
-    get (parentId) {
-      return {}
-      //return Proficiencies(parentId).$promise
-    }
-  }
+  return $resource(
+    'http://localhost:1337/proficiencies/0',
+    { method: 'getTask', q: '*' },
+    {'query': { method: 'GET', isArray: true }}
+  );
 })

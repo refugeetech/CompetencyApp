@@ -34,10 +34,14 @@ angular.module('app.controllers', [])
   }
 })
 
-.controller('workAreasCtrl', function($scope) {
+.controller('workAreasCtrl', function($scope, ProficiencyService) {
   $scope.branches = [];
 
-  /*
+  $scope.profs = ProficiencyService.query().$promise.then(function (data) {
+    $scope.branches = data;
+  });
+/*
+  console.log(ProficiencyService.get)
   ProficiencyService.get(0)
     .then((profs) => {
       console.log(profs)
