@@ -66,19 +66,21 @@ angular.module('app.controllers', [])
 
   $scope.selectedBranches = [ 8 ] // TODO: Make sure it is read from API.
 
-  $scope.profs = ProficiencyService.query({ id: 0 }).$promise.then(function (data) {
-    $scope.profs[0] = data
-  })
-
   $scope.isSelected = function (branch) {
     return $scope.selectedBranches.indexOf(branch._source.id) > -1
   }
 
+  $scope.setProfsFromApi = function (parentId) {
+    $scope.profs = ProficiencyService.query({ id: parentId }).$promise.then(function (data) {
+      $scope.profs[parentId] = data
+    })
+  }
+
+  $scope.setProfsFromApi(0)
+
   $scope.$watch('selectedBranches', function (sb) {
     sb.map(function (b) {
-      $scope.profs = ProficiencyService.query({ id: b }).$promise.then(function (data) {
-        $scope.profs[b] = data
-      })
+      $scope.setProfsFromApi(b)
     })
   })
 })
