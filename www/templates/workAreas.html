@@ -7,7 +7,7 @@
             <ion-checkbox data-ng-repeat="branch in branches">{{branch._source.namn}}</ion-checkbox>
         </ion-list>
         <div class="padding">
-          <a ui-sref="work" class="button button-stable button-block ">Fortsätt</a>
+          <a data-ng-click="goToWork()" class="button button-stable button-block ">Fortsätt</a>
         </div>
     </ion-content>
 </ion-view>

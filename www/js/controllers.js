@@ -34,12 +34,18 @@ angular.module('app.controllers', [])
   }
 })
 
-.controller('workAreasCtrl', function($scope, ProficiencyService) {
-  $scope.branches = [];
+.controller('workAreasCtrl', function($scope, ProficiencyService, UserService, $state, $stateParams) {
+  $scope.user = []
+  $scope.branches = []
+
+  $scope.goToWork = function () {
+    var userId = $stateParams.userId
+    return $state.go('user.work', { userId: userId })
+  }
 
   $scope.profs = ProficiencyService.query().$promise.then(function (data) {
     $scope.branches = data;
-  });
+  })
 })
 
 .controller('workCtrl', function($scope) {
