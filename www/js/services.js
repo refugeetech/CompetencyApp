@@ -48,9 +48,16 @@ angular.module('app.services', ['ngResource'])
 })
 
 .service('ProficiencyService', function ($resource) {
+  /*
+  return $resource('http://api.competency.se/proficiencies/:nodeId', {
+    nodeId: '@nodeId'
+  }, {
+    update: { method: 'PUT' }
+  })
+  */
   return $resource(
-    'http://api.competency.se/proficiencies/0',
-    { method: 'getTask', q: '*' },
+    'http://api.competency.se/proficiencies/:id',
+    { id: '@id' },
     {'query': { method: 'GET', isArray: true }}
   );
 })
