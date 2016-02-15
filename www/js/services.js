@@ -9,45 +9,51 @@ angular.module('app.services', ['ngResource'])
 }])
 
 .service('UserService', function ($resource) {
-  var User = $resource('http://localhost:1337/users/:userId', {
+  var User = $resource('http://api.competency.se/users/:userId', {
     userId: '@userId'
   }, {
     update: { method: 'PUT' }
   })
 
+  var self = this
   var user
 
   return {
     create: function (phoneNumber) {
-      user = new User()
-      user.phoneNumber = phoneNumber
-      return user
+      self.user = new User()
+      self.user.phoneNumber = phoneNumber
+      self.user.selectedBranches = [ 8 ]
+      return self.user
         .$save()
         .then(function (data) {
-          user.userId = data.userId
+          self.user.userId = data.userId
           return Promise.resolve(data.userId)
         })
     },
 
     update: function (data) {
-      if (user) {
-        angular.extend(user, data)
+      if (self.user) {
+        angular.extend(self.user, data)
       } else {
-        user = data
+        self.user = data
       }
       return User
-        .update({ userId: user.userId }, user)
+        .update({ userId: self.user.userId }, self.user)
         .$promise
         .then(function () {
           return Promise.resolve()
         })
+    },
+
+    get: function () {
+      return self.user
     }
   }
 })
 
 .service('ProficiencyService', function ($resource) {
   return $resource(
-    'http://localhost:1337/proficiencies/0',
+    'http://api.competency.se/proficiencies/0',
     { method: 'getTask', q: '*' },
     {'query': { method: 'GET', isArray: true }}
   );
