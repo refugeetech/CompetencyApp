@@ -15,6 +15,10 @@ angular.module('app.controllers', [])
         console.log(error)
       })
   }
+
+  $scope.linkedIn = function () {
+    console.log('LinkedIn click');
+  }
 })
 
 .controller('userProfileCtrl', function ($scope, UserService, $state, $stateParams) {
