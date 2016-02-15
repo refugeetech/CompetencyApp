@@ -37,9 +37,22 @@ angular.module('app.controllers', [])
 .controller('workAreasCtrl', function($scope, ProficiencyService, UserService, $state, $stateParams) {
   $scope.user = []
   $scope.branches = []
+  $scope.selectedBranches = [];
+
+  $scope.selectBranch = function (branchId) {
+    if ($scope.selectedBranches.indexOf(branchId) > -1) {
+      $scope.selectedBranches.splice($scope.selectedBranches.indexOf(branchId))
+    }
+    else {
+      $scope.selectedBranches.push(branchId)
+    }
+  }
 
   $scope.goToWork = function () {
     var userId = $stateParams.userId
+
+    // TODO: Save $scope.selectedBranches with UserService.
+
     return $state.go('user.work', { userId: userId })
   }
 
