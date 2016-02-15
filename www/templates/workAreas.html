@@ -4,7 +4,7 @@
           <h1>Välj de yrkesområden som du har erfarenhet ifrån</h1>
         </div>
         <ion-list>
-            <ion-checkbox data-ng-click="selectBranch(branch._source.id)" data-ng-repeat="branch in branches">{{branch._source.namn}}</ion-checkbox>
+            <ion-checkbox data-ng-click="selectBranch(branch._source.id)" data-ng-repeat="prof in profs">{{prof._source.namn}}</ion-checkbox>
         </ion-list>
         <div class="padding">
           <a data-ng-click="goToWork()" class="button button-stable button-block ">Fortsätt</a>

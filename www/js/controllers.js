@@ -55,8 +55,8 @@ angular.module('app.controllers', [])
     return $state.go('user.work', { userId: userId })
   }
 
-  $scope.profs = ProficiencyService.query({ id: 0 }).$promise.then(function (data) {
-    $scope.branches = data
+  ProficiencyService.query({ id: 0 }).$promise.then(function (data) {
+    $scope.profs = data
   })
 })
 
