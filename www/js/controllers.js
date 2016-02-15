@@ -37,32 +37,42 @@ angular.module('app.controllers', [])
 .controller('workAreasCtrl', function($scope, ProficiencyService, UserService, $state, $stateParams) {
   $scope.user = []
   $scope.branches = []
-  $scope.selectedBranches = [];
 
   $scope.selectBranch = function (branchId) {
-    if ($scope.selectedBranches.indexOf(branchId) > -1) {
-      $scope.selectedBranches.splice($scope.selectedBranches.indexOf(branchId))
+    if ($scope.branches.indexOf(branchId) > -1) {
+      $scope.branches.splice($scope.branches.indexOf(branchId))
     }
     else {
-      $scope.selectedBranches.push(branchId)
+      $scope.branches.push(branchId)
     }
   }
 
   $scope.goToWork = function () {
     var userId = $stateParams.userId
 
-    // TODO: Save $scope.selectedBranches with UserService.
+    // TODO: Save $scope.branches with UserService.
 
     return $state.go('user.work', { userId: userId })
   }
 
   $scope.profs = ProficiencyService.query().$promise.then(function (data) {
-    $scope.branches = data;
+    $scope.branches = data
   })
 })
 
-.controller('workCtrl', function($scope) {
+.controller('workCtrl', function($scope, UserService, ProficiencyService) {
+  $scope.profs = []
+  $scope.user = UserService.get()
 
+  $scope.selectedBranches = [ 8 ] // TODO: Make sure it is read from API.
+
+  $scope.profs = ProficiencyService.query().$promise.then(function (data) {
+    $scope.branches = data
+  })
+
+  $scope.isSelected = function (branch) {
+    return $scope.selectedBranches.indexOf(branch._source.id) > -1
+  }
 })
 
 .controller('thankYouCtrl', function($scope) {

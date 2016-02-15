@@ -3,20 +3,16 @@
         <div class="padding">
           <h1>Välj yrken du har erfarenhet ifrån</h1>
         </div>
-        <h2>Hälso- och sjukvård</h2>
-        <ion-list>
-            <ion-checkbox>Yrke 1</ion-checkbox>
-            <ion-checkbox>Yrke 2</ion-checkbox>
-            <ion-checkbox>Yrke 3</ion-checkbox>
-        </ion-list>
-        <h2>Bygg</h2>
-        <ion-list>
-            <ion-checkbox>Yrke 4</ion-checkbox>
-            <ion-checkbox>Yrke 5</ion-checkbox>
-            <ion-checkbox>Yrke 6</ion-checkbox>
-        </ion-list>
+        <div data-ng-repeat="branch in branches | filter:isSelected ">
+          <h2>{{branch._source.namn}}</h2>
+          <ion-list>
+              <ion-checkbox>Yrke 1</ion-checkbox>
+              <ion-checkbox>Yrke 2</ion-checkbox>
+              <ion-checkbox>Yrke 3</ion-checkbox>
+          </ion-list>
+        </div>
         <div class="padding">
-          <a ui-sref="thankYou" class="button button-stable button-block ">Spara</a>          
+          <a ui-sref="thankYou" class="button button-stable button-block ">Spara</a>
         </div>
     </ion-content>
 </ion-view>
