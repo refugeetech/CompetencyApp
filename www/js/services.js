@@ -4,10 +4,6 @@ angular.module('app.services', ['ngResource'])
 
 }])
 
-.service('BlankService', [function(){
-
-}])
-
 .service('UserService', function ($resource) {
   var User = $resource('http://api.competency.se/users/:userId', {
     userId: '@userId'
