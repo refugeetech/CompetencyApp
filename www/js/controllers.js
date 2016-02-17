@@ -52,11 +52,18 @@ angular.module('app.controllers', [])
   }
 
   $scope.goToWork = function () {
-    var userId = $stateParams.userId
-
-    // TODO: Save $scope.branches with UserService.
-
-    return $state.go('user.work', { userId: userId })
+    return UserService
+      .update({
+        userId: $stateParams.userId,
+        branches: $scope.branches
+      })
+      .then(function () {
+        return $state.go('user.work', { userId: $stateParams.userId })
+      })
+      .catch(function (error) {
+        console.log('error', error)
+        alert('Something went wrong!')
+      })
   }
 
   ProficiencyService.query({ id: 0 }).$promise.then(function (data) {
@@ -64,12 +71,17 @@ angular.module('app.controllers', [])
   })
 })
 
-.controller('workCtrl', function($scope, UserService, ProficiencyService) {
+.controller('workCtrl', function($scope, $state, $stateParams, UserService, ProficiencyService) {
   $scope.profs = {}
-  $scope.user = UserService.get()
+  $scope.user = {}
   $scope.selectedProfs = []
 
   $scope.selectedBranches = [ 8 ] // TODO: Make sure it is read from API.
+
+  var userId = $stateParams.userId
+  UserService.get({ userId: userId }).then(function (data) {
+    $scope.user = data
+  })
 
   $scope.isSelected = function (branch) {
     return $scope.selectedBranches.indexOf(branch._source.id) > -1
@@ -90,6 +102,22 @@ angular.module('app.controllers', [])
     }
   }
 
+  $scope.save = function () {
+    return UserService
+      .update({
+        userId: $stateParams.userId,
+        selectedProfs: $scope.selectedProfs
+      })
+      .then(function () {
+        return $state.go('user.thankYou', { userId: $stateParams.userId })
+      })
+      .catch(function (error) {
+        console.log('error', error)
+        alert('Something went wrong!')
+      })
+  }
+
+  // Load top level from API.
   $scope.setProfsFromApi(0)
 
   $scope.$watch('selectedBranches', function (sb) {

@@ -8,7 +8,8 @@ angular.module('app.services', ['ngResource'])
   var User = $resource('http://api.competency.se/users/:userId', {
     userId: '@userId'
   }, {
-    update: { method: 'PUT' }
+    update: { method: 'PUT' },
+    get: { method: 'GET' }
   })
 
   var self = this
@@ -41,8 +42,8 @@ angular.module('app.services', ['ngResource'])
         })
     },
 
-    get: function () {
-      return self.user
+    get: function (query) {
+      return new User().$get(query)
     }
   }
 })
