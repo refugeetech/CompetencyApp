@@ -6,7 +6,7 @@
         <div data-ng-repeat="prof in profs[0] | filter:isSelected ">
           <h2>{{prof._source.namn}}</h2>
           <ion-list>
-              <ion-checkbox data-ng-repeat="subProf in profs[prof._source.id]">{{subProf._source.namn}}</ion-checkbox>
+              <ion-checkbox data-ng-click="selectProf(subProf._source.id)" data-ng-repeat="subProf in profs[prof._source.id]">{{subProf._source.namn}}</ion-checkbox>
           </ion-list>
         </div>
         <div class="padding">

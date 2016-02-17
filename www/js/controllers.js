@@ -17,7 +17,7 @@ angular.module('app.controllers', [])
   }
 
   $scope.linkedIn = function () {
-    console.log('LinkedIn click');
+    console.log('LinkedIn click')
   }
 })
 
@@ -67,6 +67,7 @@ angular.module('app.controllers', [])
 .controller('workCtrl', function($scope, UserService, ProficiencyService) {
   $scope.profs = {}
   $scope.user = UserService.get()
+  $scope.selectedProfs = []
 
   $scope.selectedBranches = [ 8 ] // TODO: Make sure it is read from API.
 
@@ -78,6 +79,15 @@ angular.module('app.controllers', [])
     $scope.profs = ProficiencyService.query({ id: parentId }).$promise.then(function (data) {
       $scope.profs[parentId] = data
     })
+  }
+
+  $scope.selectProf = function (profId) {
+    if ($scope.selectedProfs.indexOf(profId) > -1) {
+      $scope.selectedProfs.splice($scope.selectedProfs.indexOf(profId))
+    }
+    else {
+      $scope.selectedProfs.push(profId)
+    }
   }
 
   $scope.setProfsFromApi(0)
