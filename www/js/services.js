@@ -55,3 +55,11 @@ angular.module('app.services', ['ngResource'])
     {'query': { method: 'GET', isArray: true }}
   );
 })
+
+.service('AuthService', function ($window) {
+  return {
+    linkedIn: function () {
+      $window.location = 'http://localhost:1337/auth/linkedin'
+    }
+  }
+})

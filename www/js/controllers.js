@@ -1,6 +1,6 @@
 angular.module('app.controllers', [])
 
-.controller('phoneCtrl', function($scope, $state, UserService) {
+.controller('phoneCtrl', function($scope, $state, UserService, AuthService) {
   'use strict'
 
   $scope.phoneNumber = ''
@@ -17,7 +17,7 @@ angular.module('app.controllers', [])
   }
 
   $scope.linkedIn = function () {
-    console.log('LinkedIn click')
+    AuthService.linkedIn()
   }
 })
 
