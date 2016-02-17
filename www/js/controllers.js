@@ -76,11 +76,12 @@ angular.module('app.controllers', [])
   $scope.user = {}
   $scope.selectedProfs = []
 
-  $scope.selectedBranches = [ 8 ] // TODO: Make sure it is read from API.
+  $scope.selectedBranches = []
 
   var userId = $stateParams.userId
   UserService.get({ userId: userId }).then(function (data) {
     $scope.user = data
+    $scope.selectedBranches = data._source.branches
   })
 
   $scope.isSelected = function (branch) {
