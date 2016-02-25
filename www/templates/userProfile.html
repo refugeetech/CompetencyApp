@@ -1,70 +1,85 @@
 <ion-view hide-nav-bar="true">
+    <div class="bar bar-header bar-dark">
+      <h1 class="title">Competency.se</h1>
+    </div>
     <ion-content overflow-scroll="true" padding="true" class="has-header">
-        <h1>Personlig information</h1>
-          
-        <div class="form-group">
-          <label class="label-custom">Födelseår</label>
-          <input type="text" ng-model="user.birthYear">              
-        </div>
-        
-        <div class="form-group">
-          <label for="" class="label-custom">Kön</label>
-          <input type="radio" name="sex" ng-model="user.sex" ng-value="male"><span>Man</span>
-          <input type="radio" name="sex" ng-model="user.sex" ng-value="female"><span>Kvinna</span>
-          <input type="radio" name="sex" class="no-margin" ng-model="user.sex" ng-value="other"><span>Vill inte svara</span>
-        </div>
+      <div class="form-group">
+        <label class="item item-input">
+          <span class="input-label">Födelseår</span>
+          <input type="date" ng-model="user.birthYear">
+        </label>
+      </div>
 
-        <div class="form-group">
-          <label for="" class="label-custom">Arbete</label>
+      <div class="form-group">
+        <label class="label-custom">Jag är en</label>
+        <ion-list>
+          <ion-radio ng-model="user.sex" ng-value="'male'">Man</ion-radio>
+          <ion-radio ng-model="user.sex" ng-value="'female'">Kvinna</ion-radio>
+        </ion-list>
+      </div>
 
-          <label for="looking_for_work">
-            <input type="checkbox" name="looking_for_work" value=""> Söker arbete            
-          </label>
-          <br>
+      <label class="label-custom">Vill och kan jobba</label>
+      <div class="form-group">
+          <ion-checkbox ng-model="user.looking_for_work">Söker ett arbete</ion-checkbox>
+        <ion-list ng-show="user.looking_for_work">
 
-          <label for="looking_for_trainee_job">
-            <input type="checkbox" name="looking_for_trainee_job" value=""> Söker praktikplats            
-          </label>
+          <ion-checkbox ng-model="user.looking_for_trainee_job">Accepterar praktikplats</ion-checkbox>
+          <ion-checkbox ng-model="user.have_lma_card">Har LMA-kort</ion-checkbox>
+          <input type="text" ng-show="user.have_lma_card" ng-model="user.lma_card_expiry" placeholder="Utgångsdatum">              
+          <ion-checkbox ng-show="user.lma_card_expiry" ng-model="user.has_work_permit_exception">LMA-kortet är markerat med 7-AT-UND</ion-checkbox>
+          <ion-checkbox ng-model="user.have_personal_number">Har personnummer</ion-checkbox>
+        </ion-list>
+      </div>
 
-          <br>
+      <div class="form-group">
+        <label class="label-custom">Var bor du just nu?</label>
 
-          <label for="looking_for_trainee_job">
-            <input type="checkbox" name="looking_for_trainee_job" value=""> Kan arbeta i hela Sverige            
-          </label>
-
-          <br>
-
-          <label for="card_or_pin">
-            <input type="radio" name="card_or_pin" ng-model="user.card_or_pin" ng-value="card">
-            <span>Har Lma-kort</span>            
-          </label>
-          <br>
-
-          <div class="sub-inputs">
-            <label for="looking_for_trainee_job">
-              <input type="checkbox" name="looking_for_trainee_job" value=""> Har 7-AT-UND              
-            </label>
-            <br>
-            <input type="text" placeholder="Utgångsdatum">              
+        <label class="item item-input item-select">
+          <div class="input-label">
+          Välj stad
           </div>
-          <br>
-          
-          <label for="card_or_pin">
-            <input type="radio" class="no-margin" name="card_or_pin" ng-model="user.card_or_pin" ng-value="pin">
-            <span>Har personnummer</span>            
-          </label>
-          
+          <select ng-model="user.location">
+            <option ng-repeat="city in cities">{{city}}</option>
+          </select>
+        </label>
+        <ion-checkbox ng-model="user.can_move">Kan tänka mig att flytta</ion-checkbox>
+
+      </div>
+
+      <div class="form-group">
+        <label class="label-custom">Vilka språk talar du och hur bra?</label>
+        <div class="list">
+          <label>Svenska</label>
+          <div class="item range range-positive">
+            <i class="icon ion-minus"></i>
+            <input type="range" name="volume" ng-model="user.swedish" ng-value="'0'" min="0" max="100" >
+            <i class="icon ion-checkmark-circled"></i>
+          </div>
+          <label>Engelska</label>
+          <div class="item range range-positive">
+            <i class="icon ion-minus"></i>
+            <input type="range" name="volume" ng-model="user.english"  ng-value="'0'" min="0" max="100" >
+            <i class="icon ion-checkmark-circled"></i>
+          </div>
+
+          <label>Arabiska</label>
+          <div class="item range range-positive">
+            <i class="icon ion-minus"></i>
+            <input type="range" name="volume" ng-model="user.arabic"  ng-value="'0'" min="0" max="100" >
+            <i class="icon ion-checkmark-circled"></i>
+          </div>
+
+          <label>Syrianska</label>
+          <div class="item range range-positive">
+            <i class="icon ion-minus"></i>
+            <input type="range" name="volume" ng-model="user.syrian"  ng-value="'0'" min="0" max="100" >
+            <i class="icon ion-checkmark-circled"></i>
+          </div>
         </div>
 
-        <div class="form-group">
-          <label class="label-custom">Stad</label>             
-          <input type="text" ng-model="user.location">
-          <label for="find_my_position">
-            <input type="checkbox" name="find_my_position" value=""> Hitta min position
-          </label>
-        </div>
-        
-        <a ng-click="updateProfile(user)" class="button button-stable button-block ">Fortsätt</a>
+      </div>
+      
+      <a ng-click="updateProfile(user)" class="button button-positive pull-right button-block">Fortsätt</a>
     </ion-content>
     <ui-view></ui-view>
 </ion-view>
