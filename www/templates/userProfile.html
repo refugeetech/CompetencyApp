@@ -11,7 +11,7 @@
       </div>
 
       <div class="form-group">
-        <label class="label-custom">Jag är en</label>
+        <label class="label-custom">Jag är</label>
         <ion-list>
           <ion-radio ng-model="user.sex" ng-value="'male'">Man</ion-radio>
           <ion-radio ng-model="user.sex" ng-value="'female'">Kvinna</ion-radio>
@@ -25,7 +25,7 @@
 
           <ion-checkbox ng-model="user.looking_for_trainee_job">Accepterar praktikplats</ion-checkbox>
           <ion-checkbox ng-model="user.have_lma_card">Har LMA-kort</ion-checkbox>
-          <input type="text" ng-show="user.have_lma_card" ng-model="user.lma_card_expiry" placeholder="Utgångsdatum">              
+          <input type="text" ng-show="user.have_lma_card" ng-model="user.lma_card_expiry" placeholder="Utgångsdatum">
           <ion-checkbox ng-show="user.lma_card_expiry" ng-model="user.has_work_permit_exception">LMA-kortet är markerat med 7-AT-UND</ion-checkbox>
           <ion-checkbox ng-model="user.have_personal_number">Har personnummer</ion-checkbox>
         </ion-list>
@@ -78,7 +78,7 @@
         </div>
 
       </div>
-      
+
       <a ng-click="updateProfile(user)" class="button button-positive pull-right button-block">Fortsätt</a>
     </ion-content>
     <ui-view></ui-view>
