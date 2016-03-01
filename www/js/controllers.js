@@ -21,8 +21,9 @@ angular.module('app.controllers', [])
   }
 })
 
-.controller('userProfileCtrl', function ($scope, UserService, $state, $stateParams) {
+.controller('userProfileCtrl', function ($scope, UserService, $state, $stateParams, cities) {
   $scope.user = {}
+  $scope.cities = cities
 
   $scope.updateProfile = function (user) {
     user.userId = $stateParams.userId
