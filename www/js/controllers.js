@@ -1,5 +1,8 @@
 angular.module('app.controllers', [])
 
+/*
+ * PhoneCtrl
+ */
 .controller('phoneCtrl', function($scope, $state, UserService, AuthService) {
   'use strict'
 
@@ -21,6 +24,9 @@ angular.module('app.controllers', [])
   }
 })
 
+/*
+ * UserProfileCtrl
+ */
 .controller('userProfileCtrl', function ($scope, UserService, $state, $stateParams, cities) {
   $scope.user = {}
   $scope.cities = cities
@@ -39,6 +45,9 @@ angular.module('app.controllers', [])
   }
 })
 
+/*
+ * WorkAreasCtrl
+ */
 .controller('workAreasCtrl', function($scope, ProficiencyService, UserService, $state, $stateParams) {
   $scope.user = []
   $scope.branches = []
@@ -72,6 +81,9 @@ angular.module('app.controllers', [])
   })
 })
 
+/*
+ * WorkCtrl
+ */
 .controller('workCtrl', function($scope, $state, $stateParams, UserService, ProficiencyService) {
   $scope.profs = {}
   $scope.user = {}
@@ -129,6 +141,9 @@ angular.module('app.controllers', [])
   })
 })
 
+/*
+ * ThankUCtrl
+ */
 .controller('thankYouCtrl', function($scope) {
 
 })
