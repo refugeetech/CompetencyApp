@@ -1,7 +1,7 @@
 angular.module('app.services', ['ngResource'])
 
-.service('UserService', function ($resource) {
-  var User = $resource('http://api.competency.se/users/:userId', {
+.service('UserService', function ($resource, API) {
+  var User = $resource(API.BaseUrl + '/users/:userId', {
     userId: '@userId'
   }, {
     update: { method: 'PUT' },
@@ -43,18 +43,18 @@ angular.module('app.services', ['ngResource'])
   }
 })
 
-.service('ProficiencyService', function ($resource) {
+.service('ProficiencyService', function ($resource, API) {
   return $resource(
-    'http://api.competency.se/proficiencies/:id',
+    API.Baseurl + '/proficiencies/:id',
     { id: '@id' },
     {'query': { method: 'GET', isArray: true }}
   );
 })
 
-.service('AuthService', function ($window) {
+.service('AuthService', function ($window, API) {
   return {
     linkedIn: function () {
-      $window.location = 'http://localhost:1337/auth/linkedin'
+      $window.location = API.Baseurl + '/auth/linkedin'
     }
   }
 })
