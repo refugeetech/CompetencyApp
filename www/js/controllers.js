@@ -31,6 +31,10 @@ angular.module('app.controllers', [])
   $scope.user = {}
   $scope.cities = cities
 
+  var user = UserService.get({ userId: $stateParams.userId }).then(function (result) {
+    $scope.user = result._source
+  })
+
   $scope.updateProfile = function (user) {
     user.userId = $stateParams.userId
 
