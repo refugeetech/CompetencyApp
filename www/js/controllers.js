@@ -30,6 +30,9 @@ angular.module('app.controllers', [])
 .controller('userProfileCtrl', function ($scope, UserService, $state, $stateParams, cities) {
   $scope.user = {}
   $scope.cities = cities
+  $scope.valid = {
+    birthYear: true
+  }
 
   var user = UserService.get({ userId: $stateParams.userId }).then(function (result) {
     $scope.user = result._source
@@ -47,6 +50,16 @@ angular.module('app.controllers', [])
         alert(error)
       })
   }
+
+  $scope.$watch('user.birthYear', function (by) {
+    if (by === '') {
+      $scope.valid.birthYear = true
+    } else if (parseInt(by)) {
+      $scope.valid.birthYear = true
+    } else {
+      $scope.valid.birthYear = false
+    }
+  }, true)
 })
 
 /*

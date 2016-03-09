@@ -4,7 +4,7 @@
     <div class="form-group">
       <label class="item item-input">
         <span class="input-label">Födelseår</span>
-        <input type="date" ng-model="user.birthYear">
+        <input type="text" data-ng-model="user.birthYear" data-ng-style="{'background-color': (valid.birthYear) ? '' : 'red'}">
       </label>
     </div>
 
