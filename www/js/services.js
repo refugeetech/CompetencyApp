@@ -45,7 +45,7 @@ angular.module('app.services', ['ngResource'])
 
 .service('ProficiencyService', function ($resource, API) {
   return $resource(
-    API.Baseurl + '/proficiencies/:id',
+    API.BaseUrl + '/proficiencies/:id',
     { id: '@id' },
     {'query': { method: 'GET', isArray: true }}
   );
@@ -54,7 +54,7 @@ angular.module('app.services', ['ngResource'])
 .service('AuthService', function ($window, API) {
   return {
     linkedIn: function () {
-      $window.location = API.Baseurl + '/auth/linkedin'
+      $window.location = API.BaseUrl + '/auth/linkedin'
     }
   }
 })
