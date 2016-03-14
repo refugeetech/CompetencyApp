@@ -7,8 +7,25 @@ angular.module('app.controllers', [])
   'use strict'
 
   $scope.phoneNumber = ''
+  $scope.errors = {
+    phoneNumberMissing: false,
+    phoneNumberBadFormat: false
+  }
 
   $scope.login = function (phoneNumber) {
+    $scope.errors = {
+      phoneNumberMissing: false,
+      phoneNumberBadFormat: false
+    }
+
+    if (!phoneNumber.length) {
+      return $scope.errors.phoneNumberMissing = true
+    }
+
+    if (!/^(07\d{1})(\d{6,9})/.test(phoneNumber)) {
+      return $scope.errors.phoneNumberBadFormat = true
+    }
+
     return UserService
       .create(phoneNumber)
       .then(function (userId) {
@@ -34,9 +51,13 @@ angular.module('app.controllers', [])
     birthYear: true
   }
 
-  var user = UserService.get({ userId: $stateParams.userId }).then(function (result) {
-    $scope.user = result._source
-  })
+  console.log($scope.uy)
+
+  var user = UserService
+    .get({ userId: $stateParams.userId })
+    .then(function (result) {
+      $scope.user = result._source
+    })
 
   $scope.updateProfile = function (user) {
     user.userId = $stateParams.userId
