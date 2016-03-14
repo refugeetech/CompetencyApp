@@ -1,9 +1,14 @@
 <ion-view hide-nav-bar="false">
     <ion-content overflow-scroll="true" padding="true" class="">
         <div>
-            <p>Din information har sparats.</p>
+            <p>Tack! Du var nr ${count || 321} att registrera dig på competency.se</p>
         </div>
 
-        <a ui-sref="phone" class="button button-stable button-block ">Börja om</a>
+        <h2>Kopiera nedanstående text och skicka till dina vänner. Ju fler som registrerar sig - destå mer ökar chansen att fler får jobb/praktikplats. Tips, du kan skicka via Viber/WhatsApp/Facebook/SMS.
+        <textarea onclick="this.select()">
+Jag har registrerat mina uppgifter på https://competency.se för att snabbare få jobb i Sverige. Gör det du också! Det tar en minut.
+        </textarea>
+
+        <a href="http://www.arbetsformedlingen.se/For-arbetssokande/Stod-och-service/Fa-extra-stod/Ny-i-Sverige.html" class="button button-stable button-block ">Läs mer om att jobba i Sverige</a>
     </ion-content>
 </ion-view>

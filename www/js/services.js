@@ -48,7 +48,14 @@ angular.module('app.services', ['ngResource'])
     API.BaseUrl + '/proficiencies/:id',
     { id: '@id' },
     {'query': { method: 'GET', isArray: true }}
-  );
+  )
+})
+
+.service('UserCountService', function ($resource, API) {
+  return $resource(
+    API.BaseUrl + '/users/count',
+    {'query': { method: 'GET', isArray: false }}
+  )
 })
 
 .service('AuthService', function ($window, API) {
