@@ -2,9 +2,9 @@
   <ion-content overflow-scroll="true" padding="true" class="has-header">
 
     <div class="card">
-      <label for="birthYear" class="label-custom">Födelseår</span>
+      <label for="birthDate" class="label-custom">Födelsedag</span>
       <label class="item item-input">
-        <input class="input-text" id="birthYear" placeholder="Födelseår" type="text" data-ng-model="user.birthYear">
+        <input class="input-text" id="birthDate" placeholder="Födelsedag" type="date" data-ng-model="user.birthDate">
       </label>
     </div>
 
@@ -43,14 +43,14 @@
         <label class="label-custom">Svenska</label>
         <div class="item range range-positive">
           <i class="icon ion-minus"></i>
-          <input type="range" name="volume" ng-model="user.swedish" min="0" max="100" >
+          <input type="range" name="volume" ng-model="user.swedish" steps="25" ng-value="'0'" min="0" max="100" >
           <i class="icon ion-checkmark-circled"></i>
         </div>
 
         <label class="label-custom">Engelska</label>
         <div class="item range range-positive">
           <i class="icon ion-minus"></i>
-          <input type="range" name="volume" ng-model="user.english"  min="0" max="100" >
+          <input type="range" name="volume" ng-model="user.english" steps="25" ng-value="'0'" min="0" max="100" >
           <i class="icon ion-checkmark-circled"></i>
         </div>
 
@@ -67,6 +67,35 @@
           <input type="range" name="volume" ng-model="user.syrian"  min="0" max="100" >
           <i class="icon ion-checkmark-circled"></i>
         </div>
+
+        <label class="label-custom">Bosniska/Serbiska</label>
+        <div class="item range range-positive">
+          <i class="icon ion-minus"></i>
+          <input type="range" name="volume" ng-model="user.bosnian" steps="25"  ng-value="'0'" min="0" max="100" >
+          <i class="icon ion-checkmark-circled"></i>
+        </div>
+
+        <label class="label-custom">Persiska</label>
+        <div class="item range range-positive">
+          <i class="icon ion-minus"></i>
+          <input type="range" name="volume" ng-model="user.persian" steps="25"  ng-value="'0'" min="0" max="100" >
+          <i class="icon ion-checkmark-circled"></i>
+        </div>
+
+        <label class="label-custom">Albanska</label>
+        <div class="item range range-positive">
+          <i class="icon ion-minus"></i>
+          <input type="range" name="volume" ng-model="user.albanian" steps="25"  ng-value="'0'" min="0" max="100" >
+          <i class="icon ion-checkmark-circled"></i>
+        </div>
+
+        <label class="label-custom">Somaliska</label>
+        <div class="item range range-positive">
+          <i class="icon ion-minus"></i>
+          <input type="range" name="volume" ng-model="user.soomaali" steps="25"  ng-value="'0'" min="0" max="100" >
+          <i class="icon ion-checkmark-circled"></i>
+        </div>
+
       </div>
     </div>
 

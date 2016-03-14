@@ -51,11 +51,11 @@ angular.module('app.controllers', [])
     birthYear: true
   }
 
-  console.log($scope.uy)
 
   var user = UserService
     .get({ userId: $stateParams.userId })
     .then(function (result) {
+      console.log(result)
       $scope.user = result._source
     })
 
