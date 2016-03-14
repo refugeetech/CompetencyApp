@@ -7,8 +7,25 @@ angular.module('app.controllers', [])
   'use strict'
 
   $scope.phoneNumber = ''
+  $scope.errors = {
+    phoneNumberMissing: false,
+    phoneNumberBadFormat: false
+  }
 
   $scope.login = function (phoneNumber) {
+    $scope.errors = {
+      phoneNumberMissing: false,
+      phoneNumberBadFormat: false
+    }
+
+    if (!phoneNumber.length) {
+      return $scope.errors.phoneNumberMissing = true
+    }
+
+    if (!/^(07\d{1})(\d{6,9})/.test(phoneNumber)) {
+      return $scope.errors.phoneNumberBadFormat = true
+    }
+
     return UserService
       .create(phoneNumber)
       .then(function (userId) {
@@ -34,9 +51,13 @@ angular.module('app.controllers', [])
     birthYear: true
   }
 
-  var user = UserService.get({ userId: $stateParams.userId }).then(function (result) {
-    $scope.user = result._source
-  })
+
+  var user = UserService
+    .get({ userId: $stateParams.userId })
+    .then(function (result) {
+      console.log(result)
+      $scope.user = result._source
+    })
 
   $scope.updateProfile = function (user) {
     user.userId = $stateParams.userId
@@ -78,6 +99,13 @@ angular.module('app.controllers', [])
     }
   }
 
+  var userId = $stateParams.userId
+  UserService.get({ userId: userId }).then(function (data) {
+    $scope.user = data
+    $scope.branches = data._source.branches
+    console.log(data._source.branches)
+  })
+
   $scope.goToWork = function () {
     return UserService
       .update({
@@ -85,7 +113,7 @@ angular.module('app.controllers', [])
         branches: $scope.branches
       })
       .then(function () {
-        return $state.go('user.work', { userId: $stateParams.userId })
+        return $state.go('user.thankYou', { userId: $stateParams.userId })
       })
       .catch(function (error) {
         console.log('error', error)

@@ -1,24 +1,25 @@
 <ion-view hide-nav-bar="false">
-  <ion-content overflow-scroll="true" padding="true" class="">
+  <ion-content padding="true" class="">
     <div class="card">
-      <div class="item item-divider">
-        Det tar inte mer en än minut
-      </div>
-      <div class="item item-text-wrap">
-       Genom att synliggöra din kompetens kan fler passande arbetstillfällen skapas. Att registrera sig är frivilligt och du behöver inte uppge ditt namn. Däremot behöver vi veta att du inte lämnar uppgifterna fler gånger så du måste först ange ditt mobilnummer eller registrerar dig via LinkedIn. Om du använder LinkedIn går registreringen snabbare då vi kan hämta en hel del av svaren från din profil.
-      </div>
+      <div class="card-header">Det tar inte mer en än minut</div>
+      <p>Genom att synliggöra din kompetens kan fler passande arbetstillfällen skapas. Att registrera sig är frivilligt och du behöver inte uppge ditt namn. Däremot behöver vi veta att du inte lämnar uppgifterna fler gånger så du måste först ange ditt mobilnummer.</p>
+      <div class="divider"></div>
+      <label class="label" for="phoneNumber">Fyll i ditt telefonnummer</label>
+      <form class="list">
+        <input
+          class="input-text"
+          id="phoneNumber"
+          ng-model="phoneNumber"
+          placeholder="Ditt nummer"
+          type="text" />
+      </form>
+      <div class="error" ng-show="errors.phoneNumberMissing">Telefonnummer saknas</div>
+      <div class="error" ng-show="errors.phoneNumberBadFormat">Telefonnummer är felformaterat</div>
+      <a
+        class="button button-block"
+        ng-click="login(phoneNumber)">
+        Gå vidare
+      </a>
     </div>
-    <h1>Logga in</h1>
-    <a data-ng-click="linkedIn()" class="button button-positive button-block ">LinkedIn</a>
-    <div class="padding">
-      &nbsp;
-    </div>
-    <h3>...eller fyll i ditt telefonnummer</h3>
-    <form class="list">
-      <label class="item item-input">
-        <input type="text" ng-model="phoneNumber" placeholder="Ditt nummer" />
-      </label>
-    </form>
-    <a ng-click="login(phoneNumber)" class="button button-positive button-block ">Gå vidare</a>
   </ion-content>
 </ion-view>
