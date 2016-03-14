@@ -113,7 +113,7 @@ angular.module('app.controllers', [])
         branches: $scope.branches
       })
       .then(function () {
-        return $state.go('user.work', { userId: $stateParams.userId })
+        return $state.go('user.thankYou', { userId: $stateParams.userId })
       })
       .catch(function (error) {
         console.log('error', error)
