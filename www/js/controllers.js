@@ -99,6 +99,13 @@ angular.module('app.controllers', [])
     }
   }
 
+  var userId = $stateParams.userId
+  UserService.get({ userId: userId }).then(function (data) {
+    $scope.user = data
+    $scope.branches = data._source.branches
+    console.log(data._source.branches)
+  })
+
   $scope.goToWork = function () {
     return UserService
       .update({

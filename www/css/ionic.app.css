@@ -9242,9 +9242,13 @@ label.item {
   padding: 0; }
 
 .checkbox input:checked:before,
+.checkbox input[ng-checked="true"] + .checkbox-icon:before,
 .checkbox input:checked + .checkbox-icon:before {
   background: #1eaaf1;
   border-color: #1eaaf1; }
+
+.checkbox input[ng-checked="true"] + .checkbox-icon:after {
+  opacity: 1; }
 
 .item-radio input:checked + .radio-content {
   background: #1eaaf1;
