@@ -9274,6 +9274,8 @@ label.item {
   color: #fff;
   font-weight: 700;
   transition: background 200ms ease-in-out; }
+  .button.button-block {
+    margin-bottom: 0; }
   .button:active {
     background: #096C9F; }
 
