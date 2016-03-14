@@ -1,93 +1,95 @@
 <ion-view hide-nav-bar="false">
   <ion-content overflow-scroll="true" padding="true" class="has-header">
 
-    <div class="form-group">
+    <div class="card">
+      <label for="birthDate" class="label-custom">Födelsedag</span>
       <label class="item item-input">
-        <span class="input-label">Födelseår</span>
-        <input type="text" data-ng-model="user.birthYear" data-ng-style="{'background-color': (valid.birthYear) ? '' : 'red'}">
+        <input class="input-text" id="birthDate" placeholder="Födelsedag" type="date" data-ng-model="user.birthDate">
       </label>
     </div>
 
-    <div class="form-group">
+    <div class="card">
       <label class="label-custom">Jag är</label>
-      <ion-list>
-        <ion-radio ng-model="user.sex" ng-value="'male'">Man</ion-radio>
-        <ion-radio ng-model="user.sex" ng-value="'female'">Kvinna</ion-radio>
-      </ion-list>
+      <ion-radio ng-model="user.sex" ng-value="'male'">Man</ion-radio>
+      <ion-radio ng-model="user.sex" ng-value="'female'">Kvinna</ion-radio>
     </div>
 
-    <label class="label-custom">Vill och kan jobba</label>
-    <div class="form-group">
-        <ion-checkbox ng-model="user.looking_for_work">Söker ett arbete</ion-checkbox>
+    <div class="card">
+      <label class="label-custom">Vill och kan jobba</label>
+      <ion-checkbox ng-model="user.looking_for_work">Söker ett arbete</ion-checkbox>
       <ion-list ng-show="user.looking_for_work">
-
         <ion-checkbox ng-model="user.looking_for_trainee_job">Accepterar praktikplats</ion-checkbox>
         <ion-checkbox ng-model="user.have_lma_card">Har LMA-kort</ion-checkbox>
-        <input type="text" ng-show="user.have_lma_card" ng-model="user.lma_card_expiry" placeholder="Utgångsdatum">
+        <input class="input-text margin-top-10" type="text" ng-show="user.have_lma_card" ng-model="user.lma_card_expiry" placeholder="Utgångsdatum">
         <ion-checkbox ng-show="user.lma_card_expiry" ng-model="user.has_work_permit_exception">LMA-kortet är markerat med 7-AT-UND</ion-checkbox>
         <ion-checkbox ng-model="user.have_personal_number">Har personnummer</ion-checkbox>
       </ion-list>
     </div>
 
-    <div class="form-group">
+    <div class="card">
       <label class="label-custom">Var bor du just nu?</label>
-
       <label class="item item-input item-select">
-        <div class="input-label">
-        Välj stad
-        </div>
         <select ng-model="user.location">
+          <option value="" selected>--Välj stad--</option>
           <option ng-repeat="city in cities">{{city}}</option>
         </select>
       </label>
       <ion-checkbox ng-model="user.can_move">Kan tänka mig att flytta</ion-checkbox>
     </div>
 
-    <div class="form-group">
+    <div class="card">
       <label class="label-custom">Vilka språk talar du och hur bra?</label>
       <div class="list">
-        <label>Svenska</label>
+        <label class="label-custom">Svenska</label>
         <div class="item range range-positive">
           <i class="icon ion-minus"></i>
           <input type="range" name="volume" ng-model="user.swedish" steps="25" ng-value="'0'" min="0" max="100" >
           <i class="icon ion-checkmark-circled"></i>
         </div>
-        <label>Engelska</label>
+
+        <label class="label-custom">Engelska</label>
         <div class="item range range-positive">
           <i class="icon ion-minus"></i>
           <input type="range" name="volume" ng-model="user.english" steps="25" ng-value="'0'" min="0" max="100" >
           <i class="icon ion-checkmark-circled"></i>
         </div>
 
-        <label>Arabiska</label>
+        <label class="label-custom">Arabiska</label>
         <div class="item range range-positive">
           <i class="icon ion-minus"></i>
-          <input type="range" name="volume" ng-model="user.arabic" steps="25"  ng-value="'0'" min="0" max="100" >
+          <input type="range" name="volume" ng-model="user.arabic"  min="0" max="100" >
           <i class="icon ion-checkmark-circled"></i>
         </div>
 
-        <label>Bosniska/Serbiska</label>
+        <label class="label-custom">Syrianska</label>
+        <div class="item range range-positive">
+          <i class="icon ion-minus"></i>
+          <input type="range" name="volume" ng-model="user.syrian"  min="0" max="100" >
+          <i class="icon ion-checkmark-circled"></i>
+        </div>
+
+        <label class="label-custom">Bosniska/Serbiska</label>
         <div class="item range range-positive">
           <i class="icon ion-minus"></i>
           <input type="range" name="volume" ng-model="user.bosnian" steps="25"  ng-value="'0'" min="0" max="100" >
           <i class="icon ion-checkmark-circled"></i>
         </div>
 
-        <label>Persiska</label>
+        <label class="label-custom">Persiska</label>
         <div class="item range range-positive">
           <i class="icon ion-minus"></i>
           <input type="range" name="volume" ng-model="user.persian" steps="25"  ng-value="'0'" min="0" max="100" >
           <i class="icon ion-checkmark-circled"></i>
         </div>
 
-        <label>Albanska</label>
+        <label class="label-custom">Albanska</label>
         <div class="item range range-positive">
           <i class="icon ion-minus"></i>
           <input type="range" name="volume" ng-model="user.albanian" steps="25"  ng-value="'0'" min="0" max="100" >
           <i class="icon ion-checkmark-circled"></i>
         </div>
 
-        <label>Somaliska</label>
+        <label class="label-custom">Somaliska</label>
         <div class="item range range-positive">
           <i class="icon ion-minus"></i>
           <input type="range" name="volume" ng-model="user.soomaali" steps="25"  ng-value="'0'" min="0" max="100" >
@@ -97,7 +99,7 @@
       </div>
     </div>
 
-    <a ng-click="updateProfile(user)" class="button button-positive pull-right button-block">Fortsätt</a>
+    <a ng-click="updateProfile(user)" class="button button-block">Fortsätt</a>
   </ion-content>
   <ui-view></ui-view>
 </ion-view>
