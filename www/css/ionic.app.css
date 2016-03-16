@@ -9295,6 +9295,10 @@ input[type="text"]:-ms-input-placeholder {
 input[type="text"]:-moz-placeholder {
   color: #4f4f4f; }
 
+textarea {
+  width: 100%;
+  padding: 10px; }
+
 /* Errors
 --------------------------------------------------*/
 .error {
