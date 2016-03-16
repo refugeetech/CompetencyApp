@@ -89,6 +89,7 @@ angular.module('app.controllers', [])
 .controller('workAreasCtrl', function($scope, ProficiencyService, UserService, $state, $stateParams) {
   $scope.user = []
   $scope.branches = []
+  $scope.profs = []
 
   $scope.selectBranch = function (branchId) {
     if ($scope.branches.indexOf(branchId) > -1) {
@@ -103,7 +104,15 @@ angular.module('app.controllers', [])
   UserService.get({ userId: userId }).then(function (data) {
     $scope.user = data
     $scope.branches = data._source.branches
-    console.log(data._source.branches)
+    ProficiencyService.query({ id: 0 }).$promise.then(function (data) {
+      data.map(function (d) {
+        $scope.profs.push({
+          id: d._source.id,
+          name: d._source.namn,
+          selected: $scope.branches.indexOf(d._source.id) > -1
+        })
+      })
+    })
   })
 
   $scope.goToWork = function () {
@@ -120,10 +129,6 @@ angular.module('app.controllers', [])
         alert('Something went wrong!')
       })
   }
-
-  ProficiencyService.query({ id: 0 }).$promise.then(function (data) {
-    $scope.profs = data
-  })
 })
 
 /*
