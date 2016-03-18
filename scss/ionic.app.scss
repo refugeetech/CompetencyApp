@@ -23,7 +23,8 @@ $font-family-light-sans-serif:    "Lato", "HelveticaNeue-Light", "Roboto-Light",
 $headings-font-weight:            bold;
 
 $stable:  #BBCDF3;
-$positive: #1E99C9;
+$positive: #f96062;
+$positive-light: #FA7577;
 
 $button-stable-text: #fff;
 
@@ -150,8 +151,8 @@ input[type="checkbox"] {
 /* Header
 --------------------------------------------------*/
 .bar-header {
-  background: #1eaaf1;
-  color: #fff;
+  background: #f7f7f7;
+  color: #0e1f26;
 }
 
 /* Form
@@ -181,7 +182,7 @@ input.input-text {
   transition: border-color 200ms ease-in-out;
 
   &:focus {
-    border-color: #1eaaf1;
+    border-color: $positive;
   }
 }
 
@@ -236,8 +237,8 @@ label.item {
 .checkbox input:checked:before,
 .checkbox input[ng-checked="true"] + .checkbox-icon:before,
 .checkbox input:checked + .checkbox-icon:before {
-  background: #1eaaf1;
-  border-color: #1eaaf1;
+  background: $positive;
+  border-color: $positive;
 }
 
 .checkbox input[ng-checked="true"] + .checkbox-icon:after {
@@ -245,7 +246,7 @@ label.item {
 }
 
 .item-radio input:checked + .radio-content {
-  background: #1eaaf1;
+  background: $positive;
   color: #fff;
 
   .item-content {
@@ -270,7 +271,7 @@ label.item {
 }
 
 .button {
-  background: #1eaaf1;
+  background: $positive;
   border-radius: 2px;
   color: #fff;
   font-weight: 700;
@@ -281,7 +282,7 @@ label.item {
   }
 
   &:active {
-    background: #096C9F;
+    background: $positive-light;
   }
 }
 
@@ -303,10 +304,15 @@ input[type="text"]:-moz-placeholder {
   color: #4f4f4f;
 }
 
+textarea {
+  width: 100%;
+  padding: 10px;
+}
+
 /* Errors
 --------------------------------------------------*/
 .error {
-  background: #F11E40;
+  background: $positive;
   color: #fff;
   font-size: 16px;
   font-weight: 700;
