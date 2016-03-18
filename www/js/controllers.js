@@ -1,47 +1,6 @@
 angular.module('app.controllers', [])
 
 /*
- * PhoneCtrl
- */
-.controller('phoneCtrl', function($scope, $state, UserService, AuthService) {
-  'use strict'
-
-  $scope.phoneNumber = ''
-  $scope.errors = {
-    phoneNumberMissing: false,
-    phoneNumberBadFormat: false
-  }
-
-  $scope.login = function (phoneNumber) {
-    $scope.errors = {
-      phoneNumberMissing: false,
-      phoneNumberBadFormat: false
-    }
-
-    if (!phoneNumber.length) {
-      return $scope.errors.phoneNumberMissing = true
-    }
-
-    if (!/^(07\d{1})(\d{6,9})/.test(phoneNumber)) {
-      return $scope.errors.phoneNumberBadFormat = true
-    }
-
-    return UserService
-      .create(phoneNumber)
-      .then(function (userId) {
-        return $state.go('user', { userId })
-      })
-      .catch(function (error) {
-        console.log(error)
-      })
-  }
-
-  $scope.linkedIn = function () {
-    AuthService.linkedIn()
-  }
-})
-
-/*
  * UserProfileCtrl
  */
 .controller('userProfileCtrl', function ($scope, UserService, $state, $stateParams, cities) {
@@ -94,8 +53,7 @@ angular.module('app.controllers', [])
   $scope.selectBranch = function (branchId) {
     if ($scope.branches.indexOf(branchId) > -1) {
       $scope.branches.splice($scope.branches.indexOf(branchId))
-    }
-    else {
+    } else {
       $scope.branches.push(branchId)
     }
   }
