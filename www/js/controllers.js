@@ -1,83 +1,35 @@
 angular.module('app.controllers', [])
 
 /*
- * UserProfileCtrl
- */
-.controller('userProfileCtrl', function ($scope, UserService, $state, $stateParams, cities) {
-  $scope.user = {}
-  $scope.cities = cities
-  $scope.valid = {
-    birthYear: true
-  }
-
-
-  var user = UserService
-    .get({ userId: $stateParams.userId })
-    .then(function (result) {
-      console.log(result)
-      $scope.user = result._source
-    })
-
-  $scope.updateProfile = function (user) {
-    user.userId = $stateParams.userId
-
-    return UserService
-      .update(user)
-      .then(function () {
-        return $state.go('user.workAreas', { userId: user.userId })
-      })
-      .catch(function (error) {
-        alert(error)
-      })
-  }
-
-  $scope.$watch('user.birthYear', function (by) {
-    if (by === '') {
-      $scope.valid.birthYear = true
-    } else if (parseInt(by)) {
-      $scope.valid.birthYear = true
-    } else {
-      $scope.valid.birthYear = false
-    }
-  }, true)
-})
-
-/*
  * WorkAreasCtrl
  */
 .controller('workAreasCtrl', function($scope, ProficiencyService, UserService, $state, $stateParams) {
   $scope.user = []
-  $scope.branches = []
   $scope.profs = []
-
-  $scope.selectBranch = function (branchId) {
-    if ($scope.branches.indexOf(branchId) > -1) {
-      $scope.branches.splice($scope.branches.indexOf(branchId))
-    } else {
-      $scope.branches.push(branchId)
-    }
-  }
 
   var userId = $stateParams.userId
   UserService.get({ userId: userId }).then(function (data) {
     $scope.user = data
-    $scope.branches = data._source.branches
-    ProficiencyService.query({ id: 0 }).$promise.then(function (data) {
-      data.map(function (d) {
-        $scope.profs.push({
-          id: d._source.id,
-          name: d._source.namn,
-          selected: $scope.branches.indexOf(d._source.id) > -1
+    if (data._source.professions) {
+      $scope.profs = data._source.professions
+    } else {
+      ProficiencyService.query({ id: 0 }).$promise.then(function (professions) {
+        professions.map(function (d) {
+          $scope.profs.push({
+            id: d._source.id,
+            name: d._source.namn,
+            selected: false
+          })
         })
       })
-    })
+    }
   })
 
   $scope.goToWork = function () {
     return UserService
       .update({
         userId: $stateParams.userId,
-        branches: $scope.branches
+        professions: $scope.profs
       })
       .then(function () {
         return $state.go('user.thankYou', { userId: $stateParams.userId })

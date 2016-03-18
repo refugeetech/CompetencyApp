@@ -9,7 +9,6 @@ angular.module('app').controller('userProfileCtrl', function ($scope, UserServic
   var user = UserService
     .get({ userId: $stateParams.userId })
     .then(function (result) {
-      console.log(result)
       $scope.user = result._source
     })
 
