@@ -13,7 +13,20 @@ angular.module('app').controller('workAreasCtrl', function($scope, ProficiencySe
           $scope.profs.push({
             id: d._source.id,
             name: d._source.namn,
-            selected: false
+            selected: false,
+            children: [{
+              id: 1000 + d._source.id,
+              name: 'subcat' + 1000 + d._source.id,
+              selected: false
+            },{
+              id: 1000 + d._source.id,
+              name: 'subcat' + 1000 + d._source.id,
+              selected: false
+            },{
+              id: 1000 + d._source.id,
+              name: 'subcat' + 1000 + d._source.id,
+              selected: false
+            }]
           })
         })
       })

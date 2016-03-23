@@ -9310,3 +9310,13 @@ textarea {
   font-weight: 700;
   padding: 12px 0;
   text-align: center; }
+
+/* ilix
+*/
+.ion-checkbox__level0 {
+  margin-top: 24px;
+}
+
+.ion-checkbox__level1 {
+  padding-left: 36px;
+}

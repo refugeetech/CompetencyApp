@@ -5,7 +5,12 @@
         Välj de yrkesområden som du har erfarenhet ifrån
       </div>
       <ion-list>
-          <ion-checkbox data-ng-checked="prof.selected" data-ng-model="prof.selected" data-ng-repeat="prof in profs">{{prof.name}}</ion-checkbox>
+        <span data-ng-repeat="prof in profs">
+          <ion-checkbox class="ion-checkbox__level0" data-ng-checked="prof.selected" data-ng-model="prof.selected">{{prof.name}}</ion-checkbox>
+          <span data-ng-show="prof.selected">
+            <ion-checkbox class="ion-checkbox__level1" data-ng-checked="child.selected" data-ng-model="child.selected" data-ng-repeat="child in prof.children">{{child.name}}</ion-checkbox>
+          </span>
+        </span>
       </ion-list>
       <div class="padding">
         <a data-ng-click="goToWork()" class="button button-block">Fortsätt</a>
