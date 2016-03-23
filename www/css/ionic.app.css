@@ -7086,7 +7086,7 @@ textarea {
     text-indent: -3px; }
 
 textarea {
-  height: auto; }
+  height: 100px; }
 
 textarea,
 input[type="text"],
@@ -9297,7 +9297,9 @@ input[type="text"]:-moz-placeholder {
 
 textarea {
   width: 100%;
-  padding: 10px; }
+  padding: 10px;
+  height: 100px;
+}
 
 /* Errors
 --------------------------------------------------*/
