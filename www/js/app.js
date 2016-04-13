@@ -1,4 +1,4 @@
-angular.module('app', ['ionic', 'app.routes', 'app.services', 'app.directives'])
+angular.module('app', ['ionic', 'app.routes', 'app.services', 'app.directives', 'pascalprecht.translate'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -12,4 +12,8 @@ angular.module('app', ['ionic', 'app.routes', 'app.services', 'app.directives'])
       StatusBar.styleDefault();
     }
   });
+})
+
+angular.module('app').config(function ($translateProvider) {
+  $translateProvider.preferredLanguage('en')
 })
