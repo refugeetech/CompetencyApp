@@ -32,6 +32,7 @@ angular.module('app').config(function ($translateProvider) {
     "location_pick_label": "Välj stad",
     "can_move_label": "Kan tänka mig att flytta",
 
+    "language": "Språk",
     "languages_label": "Vilka språk kan du och hur bra?",
 
     "swedish": "Svenska",
