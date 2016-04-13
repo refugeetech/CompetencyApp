@@ -4,6 +4,8 @@ angular.module('app').config(function ($translateProvider) {
     "hero_body": "As a newcomer, it takes time before you can start working. By sharing your current job status and your skills even before you have a social security number, maybe potential employers can get to see you and offer you internships",
     "hero_button": "Tell about yourself",
 
+    "your_number": "Ditt nummer",
+
     "about_title": "Det tar inte mer än en minut.",
     "about_body" : "Genom att synliggöra din kompetens kan fler passande arbetstillfällen skapas. Att registrera sig är frivilligt och du behöver inte uppge ditt namn. Däremot behöver vi veta att du inte lämnar uppgifterna fler gånger så du måste först ange ditt mobilnummer.",
 
@@ -43,10 +45,12 @@ angular.module('app').config(function ($translateProvider) {
     "russian": "Ryska",
     "dari": "Dari",
 
-    "skills_label": "Choose the working area that you are skilled with",
+    "skills_label": "Välj de yrkesområden som du har erfarenhet ifrån",
 
-    "thanks_title": "Thanks, you have registered your profile.",
-    "thanks_body": "Fantastic, Ja! More people registering means more job chances will be. Help us through sharing us with your friends via Viber/facebook/ sms/whatsapp",
-    "share_body": "I have registered my details on http://competency.se to quickly get jobs in Sweden. We need 1,000 people to start making difference. Sign up too! Read more on Competency.se"
+    "thanks_title": "Tack! Du har nu registrerat din profil",
+    "thanks_body": "Fantastiskt! Ju fler som registrerar sig - destå mer ökar chansen att fler får jobb. Hjälp oss genom att skicka detta via Viber/WhatsApp/Facebook/SMS.",
+    "share_body": "Jag har registrerat mina uppgifter på http://competency.se för att snabbare få jobb i Sverige. Vi behöver 1000 personer för att kunna börja göra utskick. Registrera dig också!",
+
+    "read_more": "Läs mer på Competency.se"
   });
 });

@@ -4,6 +4,8 @@ angular.module('app').config(function ($translateProvider) {
     "hero_body": "As a newcomer, it takes time before you can start working. By sharing your current job status and your skills even before you have a social security number, maybe potential employers can get to see you and offer you internships",
     "hero_button": "Tell about yourself",
 
+    "your_number": "Your number",
+
     "about_title": "It does not take more than a minute.",
     "about_body" : "Visualizing your skills can get more suitable jobs created. Registering yourself is optional, and you don`t need to provide your name. However, we need to know that you do not double register yourself, so we need your phone number.",
 
@@ -43,11 +45,13 @@ angular.module('app').config(function ($translateProvider) {
     "russian": "Russian",
     "dari": "Dari",
 
-    "skills_label": "Choose the working area that you are skilled with",
+    "skills_label": "Choose the working area(s) that you are skilled with",
 
     "thanks_title": "Thanks, you have registered your profile.",
-    "thanks_body": "Fantastic, Ja! More people registering means more job chances will be. Help us through sharing us with your friends via Viber/facebook/ sms/whatsapp",
+    "thanks_body": "Fantastic! More people registering means more job chances will be. Help us through sharing us with your friends via Viber/facebook/ sms/whatsapp",
     "share_body": "I have registered my details on http://competency.se to quickly get jobs in Sweden. We need 1,000 people to start making difference. Sign up too! Read more on Competency.se",
+
+    "read_more": "Read more on Competency.se"
 
   });
 });
