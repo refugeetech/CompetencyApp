@@ -1,8 +1,8 @@
 angular.module('app').config(function ($translateProvider) {
   $translateProvider.translations('sv', {
-    "hero_title": "Let the job find you instead!",
-    "hero_body": "As a newcomer, it takes time before you can start working. By sharing your current job status and your skills even before you have a social security number, maybe potential employers can get to see you and offer you internships",
-    "hero_button": "Tell about yourself",
+    "hero_title": "Låt jobben hitta dig istället!",
+    "hero_body": "Som nyanländ tar det tid innan du kan börja jobba. Genom att dela din nuvarande arbetsstatus och dina kompetenser även innan du har ett personnummer kan potentiella arbetsgivare få koll på att du finns och erbjuda praktikplatser.",
+    "hero_button": "Berätta om dig själv",
 
     "your_number": "Ditt nummer",
 
@@ -15,11 +15,11 @@ angular.module('app').config(function ($translateProvider) {
     "phone_error_missing": "Telefonnummer saknas",
     "phone_error_malformed": "Telefonnummer är felformaterat",
 
-    "age_label": "age",
-    "birthdate_label": "age",
-    "gender_label": "I am a",
+    "age_label": "Ålder",
+    "birthdate_label": "Födelsedatum",
+    "gender_label": "Jag är",
     "man": "Man",
-    "woman": "Woman",
+    "woman": "Kvinna",
     "availability_title": "Jag kan och vill jobba som",
     "seeking_job": "Söker ett arbete",
     "accept_internship": "Accepterar praktikplats",
