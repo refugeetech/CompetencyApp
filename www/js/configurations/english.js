@@ -45,6 +45,7 @@ angular.module('app').config(function ($translateProvider) {
     "somali": "Somali",
     "russian": "Russian",
     "dari": "Dari",
+    'farsi': 'Farsi',
 
     "skills_label": "Choose the working area(s) that you are skilled with",
 

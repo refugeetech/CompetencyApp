@@ -45,6 +45,7 @@ angular.module('app').config(function ($translateProvider) {
     "somali": "Somaliska",
     "russian": "Ryska",
     "dari": "Dari",
+    'farsi': 'Farsi',
 
     "skills_label": "Välj de yrkesområden som du har erfarenhet ifrån",
 
