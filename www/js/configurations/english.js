@@ -8,9 +8,13 @@ angular.module('app').config(function ($translateProvider) {
     "about_body" : "Visualizing your skills can get more suitable jobs created. Registering yourself is optional, and you don`t need to provide your name. However, we need to know that you do not double register yourself, so we need your phone number.",
 
     "phone_label": "Please fill in your phone number",
-    "continue": "continue",
+    "continue": "Continue",
 
-    "age_label": "age",
+    "phone_error_missing": "Phone number missing",
+    "phone_error_malformed": "Phone number malformed",
+
+    "age_label": "Age",
+    "birthdate_label": "Birth date",
     "gender_label": "I am a",
     "man": "Man",
     "woman": "Woman",
@@ -18,16 +22,32 @@ angular.module('app').config(function ($translateProvider) {
     "seeking_job": "Seeking job",
     "accept_internship": "Accept training (internship)",
     "have_lma_card": "Have LMA card",
+    "have_lma_card_exception": "The LMA card is marked with 7-AT-UND",
+    "expiry_date": "Expiry date",
     "have_social_security_id": "Have a personal number",
 
     "location_label": "Where do you live right now?",
+    "location_pick_label": "Pick city",
     "can_move_label": "Can consider moving",
 
     "languages_label": "What languages do you speak? And how good?",
+
+    "swedish": "Swedish",
+    "english": "English",
+    "arabic": "Arabic",
+    "syrian": "Syrian",
+    "bosnian_serbian": "Bosnian/Serbian",
+    "persian": "Persian",
+    "albanian": "Albanian",
+    "somali": "Somali",
+    "russian": "Russian",
+    "dari": "Dari",
+
     "skills_label": "Choose the working area that you are skilled with",
 
     "thanks_title": "Thanks, you have registered your profile.",
     "thanks_body": "Fantastic, Ja! More people registering means more job chances will be. Help us through sharing us with your friends via Viber/facebook/ sms/whatsapp",
-    "share_body": "I have registered my details on http://competency.se to quickly get jobs in Sweden. We need 1,000 people to start making difference. Sign up too! Read more on Competency.se"
+    "share_body": "I have registered my details on http://competency.se to quickly get jobs in Sweden. We need 1,000 people to start making difference. Sign up too! Read more on Competency.se",
+
   });
 });
