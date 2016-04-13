@@ -4,7 +4,7 @@
       <div class="card-header">{{ 'about_title' | translate }}</div>
       <p>{{ 'about_body' | translate }}</p>
       <div class="divider"></div>
-      <label class="label" for="phoneNumber">Fyll i ditt telefonnummer</label>
+      <label class="label" for="phoneNumber">{{ 'phone_label' | translate }}</label>
       <form class="list">
         <input
           class="input-text"
@@ -13,12 +13,12 @@
           placeholder="Ditt nummer"
           type="text" />
       </form>
-      <div class="error" ng-show="errors.phoneNumberMissing">Telefonnummer saknas</div>
-      <div class="error" ng-show="errors.phoneNumberBadFormat">Telefonnummer är felformaterat</div>
+      <div class="error" ng-show="errors.phoneNumberMissing">{{ 'phone_error_missing' | translate }}</div>
+      <div class="error" ng-show="errors.phoneNumberBadFormat">{{ 'phone_error_malformed' | translate }}</div>
       <a
         class="button button-block"
         ng-click="login(phoneNumber)">
-        Gå vidare
+        {{ 'continue' | translate }}
       </a>
     </div>
   </ion-content>
