@@ -6,33 +6,38 @@ angular.module('app').controller('workAreasCtrl', function($scope, ProficiencySe
   UserService.get({ userId: userId }).then(function (data) {
     $scope.user = data
     ProficiencyService.query({ id: 0 }).$promise.then(function (professions) {
-      professions.map(function (d) {
-        $scope.profs.push({
-          id: d._source.id,
-          name: d._source.namn,
-          selected: false,
-          children: [{
-            id: 1000 + d._source.id,
-            name: 'subcat' + 1000 + d._source.id,
-            selected: false
-          },
-          {
-            id: 1000 + d._source.id,
-            name: 'subcat' + 1000 + d._source.id,
-            selected: false
-          },
-          {
-            id: 1000 + d._source.id,
-            name: 'subcat' + 1000 + d._source.id,
-            selected: false
-          }]
+      if (professions) {
+        professions.map(function (d) {
+          $scope.profs.push({
+            id: d._source.id,
+            name: d._source.namn,
+            selected: false,
+            children: [{
+              id: 1000 + d._source.id,
+              name: 'subcat' + 1000 + d._source.id,
+              selected: false
+            },
+            {
+              id: 1000 + d._source.id,
+              name: 'subcat' + 1000 + d._source.id,
+              selected: false
+            },
+            {
+              id: 1000 + d._source.id,
+              name: 'subcat' + 1000 + d._source.id,
+              selected: false
+            }]
+          })
         })
-      })
+      }
       ensureSelected(data._source.professions)
     })
   })
 
   function ensureSelected (professions) {
+    if (!professions) {
+      return
+    }
     professions.filter(filterSelected).map(function (selectedProfession) {
       $scope.profs.map(function (item) {
         if (item.id === selectedProfession.id) {
