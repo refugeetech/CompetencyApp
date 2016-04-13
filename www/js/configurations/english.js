@@ -1,5 +1,7 @@
 angular.module('app').config(function ($translateProvider) {
   $translateProvider.translations('en', {
+    "direction": "ltr",
+
     "hero_title": "Let the job find you instead!",
     "hero_body": "As a newcomer, it takes time before you can start working. By sharing your current job status and your skills even before you have a social security number, maybe potential employers can get to see you and offer you internships",
     "hero_button": "Tell about yourself",

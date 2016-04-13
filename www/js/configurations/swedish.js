@@ -1,5 +1,7 @@
 angular.module('app').config(function ($translateProvider) {
   $translateProvider.translations('sv', {
+    "direction": "ltr",
+
     "hero_title": "Låt jobben hitta dig istället!",
     "hero_body": "Som nyanländ tar det tid innan du kan börja jobba. Genom att dela din nuvarande arbetsstatus och dina kompetenser även innan du har ett personnummer kan potentiella arbetsgivare få koll på att du finns och erbjuda praktikplatser.",
     "hero_button": "Berätta om dig själv",
