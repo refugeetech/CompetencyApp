@@ -1,5 +1,10 @@
-angular.module('app').controller('phoneCtrl', function($scope, $state, UserService, AuthService) {
+angular.module('app').controller('phoneCtrl', function($scope, $state, UserService, AuthService, $translate) {
   'use strict'
+
+  $scope.language = 'en'
+  $scope.changeLanguage = function (key) {
+    $translate.use(key)
+  }
 
   $scope.phoneNumber = ''
   $scope.errors = {

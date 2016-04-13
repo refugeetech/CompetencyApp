@@ -21,5 +21,10 @@
         {{ 'continue' | translate }}
       </a>
     </div>
+    <div class="card">
+      <label class="label-custom">{{ 'language' | translate }}</label>
+      <ion-radio ng-model="language" ng-value="'en'" data-ng-click="changeLanguage('en')">{{ 'english' | translate }}</ion-radio>
+      <ion-radio ng-model="language" ng-value="'sv'" data-ng-click="changeLanguage('sv')">{{ 'swedish' | translate }}</ion-radio>
+    </div>
   </ion-content>
 </ion-view>
