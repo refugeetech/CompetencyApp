@@ -2,7 +2,7 @@
   <ion-content padding="true" class="">
     <div class="card">
       <div class="card-header">
-        Välj de yrkesområden som du har erfarenhet ifrån
+        {{ 'skills_label' | translate }}
       </div>
       <ion-list>
         <span data-ng-repeat="prof in profs">
@@ -13,7 +13,7 @@
         </span>
       </ion-list>
       <div class="padding">
-        <a data-ng-click="goToWork()" class="button button-block">Fortsätt</a>
+        <a data-ng-click="goToWork()" class="button button-block">{{ 'continue' | translate }}</a>
       </div>
     </div>
   </ion-content>

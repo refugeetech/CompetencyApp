@@ -1,15 +1,17 @@
 <ion-view hide-nav-bar="false">
     <ion-content overflow-scroll="true" padding="true" class="">
         <div>
-            <h1>Tack! Du har nu registrerat din profil</h1>
+            <h1>{{ 'thanks_title' | translate }}</h1>
         </div>
-        <p>Fantastiskt! Ju fler som registrerar sig - destå mer ökar chansen att fler får jobb. Hjälp oss genom att skicka detta via Viber/WhatsApp/Facebook/SMS.</p>
+        <p>
+          {{ 'thanks_body' | translate }}
+        </p>
       <ion-item>
         <textarea onclick="this.select()">
-Jag har registrerat mina uppgifter på http://competency.se för att snabbare få jobb i Sverige. Vi behöver 1000 personer för att kunna börja göra utskick. Registrera dig också!
+{{ 'share_body' | translate }}
         </textarea>
       </ion-item>
 
-        <a href="http://competency.se" class="button button-stable button-block ">Läs mer Competency.se</a>
+        <a href="http://competency.se" class="button button-stable button-block ">{{ 'read_more' | translate }}</a>
     </ion-content>
 </ion-view>

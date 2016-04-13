@@ -10,7 +10,7 @@
           class="input-text"
           id="phoneNumber"
           ng-model="phoneNumber"
-          placeholder="Ditt nummer"
+          placeholder="{{ 'your_nubmer' | translate }}"
           type="text" />
       </form>
       <div class="error" ng-show="errors.phoneNumberMissing">{{ 'phone_error_missing' | translate }}</div>
