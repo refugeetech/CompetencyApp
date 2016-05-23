@@ -1,6 +1,7 @@
 angular.module('app').controller('workAreasCtrl', function($scope, ProficiencyService, UserService, $state, $stateParams) {
   $scope.user = []
   $scope.profs = []
+  $scope.children = []
 
   var userId = $stateParams.userId
   UserService.get({ userId: userId }).then(function (data) {
@@ -11,28 +12,33 @@ angular.module('app').controller('workAreasCtrl', function($scope, ProficiencySe
           $scope.profs.push({
             id: d._source.id,
             name: d._source.namn,
-            selected: false,
-            children: [{
-              id: 1000 + d._source.id,
-              name: 'subcat' + 1000 + d._source.id,
-              selected: false
-            },
-            {
-              id: 1000 + d._source.id,
-              name: 'subcat' + 1000 + d._source.id,
-              selected: false
-            },
-            {
-              id: 1000 + d._source.id,
-              name: 'subcat' + 1000 + d._source.id,
-              selected: false
-            }]
+            parentId: 0,
+            selected: false
           })
         })
       }
       ensureSelected(data._source.professions)
     })
   })
+
+  $scope.loadChildren = function (parent) {
+    if (!parent.selected) {
+      return
+    }
+    ProficiencyService.query({ id: parent.id }).$promise.then(function (professions) {
+      if (professions) {
+        professions.map(function (d) {
+          $scope.children.push({
+            id: d._source.id,
+            name: d._source.namn,
+            parentId: parent.id,
+            selected: false
+          })
+        })
+      }
+      ensureSelected(professions)
+    })
+  }
 
   function ensureSelected (professions) {
     if (!professions) {
@@ -49,6 +55,11 @@ angular.module('app').controller('workAreasCtrl', function($scope, ProficiencySe
 
   function filterSelected (item) {
     return item.selected
+  }
+
+  function filterByParent (item, parentId) {
+    console.log(item, parentId)
+    return false
   }
 
   $scope.goToWork = function () {
