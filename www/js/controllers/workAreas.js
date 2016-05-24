@@ -2,6 +2,7 @@ angular.module('app').controller('workAreasCtrl', function ($scope, ProficiencyS
   $scope.user = []
   $scope.profs = []
   $scope.children = []
+  $scope.loadedChildren = []
 
   var userId = $stateParams.userId
   UserService.get({ userId: userId }).then(function (data) {
@@ -22,6 +23,10 @@ angular.module('app').controller('workAreasCtrl', function ($scope, ProficiencyS
   })
 
   $scope.loadChildren = function (parent) {
+    if ($scope.loadedChildren.indexOf(parent.id) > -1) {
+      return
+    }
+    $scope.loadedChildren.push(parent.id)
     if (!parent.selected) {
       return
     }
@@ -48,6 +53,10 @@ angular.module('app').controller('workAreasCtrl', function ($scope, ProficiencyS
       $scope.profs.map(function (item) {
         if (item.id === selectedProfession.id) {
           item.selected = true
+          console.log('SEL', item.id, item.parentId)
+          if (item.parentId === 0) {
+            $scope.loadChildren(item)
+          }
         }
       })
     })
