@@ -7086,7 +7086,7 @@ textarea {
     text-indent: -3px; }
 
 textarea {
-  height: 100px; }
+  height: auto; }
 
 textarea,
 input[type="text"],
@@ -9297,9 +9297,7 @@ input[type="text"]:-moz-placeholder {
 
 textarea {
   width: 100%;
-  padding: 10px;
-  height: 100px;
-}
+  padding: 10px; }
 
 /* Errors
 --------------------------------------------------*/
@@ -9310,13 +9308,3 @@ textarea {
   font-weight: 700;
   padding: 12px 0;
   text-align: center; }
-
-/* ilix
-*/
-.ion-checkbox__level0 {
-  margin-top: 24px;
-}
-
-.ion-checkbox__level1 {
-  padding-left: 36px;
-}
