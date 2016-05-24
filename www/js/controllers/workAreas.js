@@ -53,7 +53,6 @@ angular.module('app').controller('workAreasCtrl', function ($scope, ProficiencyS
       $scope.profs.map(function (item) {
         if (item.id === selectedProfession.id) {
           item.selected = true
-          console.log('SEL', item.id, item.parentId)
           if (item.parentId === 0) {
             $scope.loadChildren(item)
           }
