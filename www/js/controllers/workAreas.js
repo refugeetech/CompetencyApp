@@ -1,4 +1,4 @@
-angular.module('app').controller('workAreasCtrl', function($scope, ProficiencyService, UserService, $state, $stateParams) {
+angular.module('app').controller('workAreasCtrl', function ($scope, ProficiencyService, UserService, $state, $stateParams) {
   $scope.user = []
   $scope.profs = []
   $scope.children = []
@@ -55,11 +55,6 @@ angular.module('app').controller('workAreasCtrl', function($scope, ProficiencySe
 
   function filterSelected (item) {
     return item.selected
-  }
-
-  function filterByParent (item, parentId) {
-    console.log(item, parentId)
-    return false
   }
 
   $scope.goToWork = function () {
