@@ -4,6 +4,12 @@ angular.module('app').controller('workAreasCtrl', function ($scope, ProficiencyS
   $scope.children = []
   $scope.loadedChildren = []
 
+  $scope.proficiencies = {}
+  $scope.userProficiencies = {}
+
+  // Tracks visible trees.
+  $scope.show = []
+
   var userId = $stateParams.userId
   UserService.get({ userId: userId }).then(function (data) {
     $scope.user = data
@@ -45,6 +51,29 @@ angular.module('app').controller('workAreasCtrl', function ($scope, ProficiencyS
     })
   }
 
+  $scope.loadProficiencies = function (parentId, parentName) {
+    var index = $scope.show.indexOf(parentId)
+    if (index > -1) {
+      $scope.show.splice(index, 1)
+    } else {
+      $scope.show.push(parentId)
+    }
+    ProficiencyService.query({ id: parentId }).$promise
+      .then(function (proficiencies) {
+        if (proficiencies) {
+          proficiencies.map(function (proficiency) {
+            if (parentName) {
+              $scope.proficiencies[parentName][proficiency._source.namn] = proficiency._source
+              $scope.userProficiencies[parentName][proficiency._source.namn] = false
+            } else {
+              $scope.proficiencies[proficiency._source.namn] = proficiency._source
+              $scope.userProficiencies[proficiency._source.namn] = false
+            }
+          })
+        }
+      })
+  }
+
   function ensureSelected (professions) {
     if (!professions) {
       return
@@ -76,7 +105,10 @@ angular.module('app').controller('workAreasCtrl', function ($scope, ProficiencyS
       })
       .catch(function (error) {
         console.log('error', error)
-        alert('Something went wrong!')
+        alert('Sorry! An error occurred.')
       })
   }
+
+  // Do when view is loaded.
+  $scope.loadProficiencies(0)
 })
