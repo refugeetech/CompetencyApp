@@ -2,10 +2,15 @@ angular.module('app').controller('occupationsCtrl', function($scope, $state, Use
   'use strict'
 
   $scope.occupations = {}
+  $scope.show = {}
 
   OccupationService.get().$promise
     .then(function (occupations) {
       $scope.occupations = occupations
     })
+
+  $scope.toggle = function (what) {
+    $scope.show[what] = !$scope.show[what]
+  }
 
 })
