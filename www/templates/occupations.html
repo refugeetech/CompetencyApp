@@ -5,43 +5,44 @@
         {{ 'occupations_label' | translate }}
       </div>
 
-      <ul>
+      <!-- LEVEL 1 -->
+      <span data-ng-repeat="occupation1 in occupations.children">
+        <div data-ng-click="toggle(occupation1.code)">
+          <strong>{{occupation1.code}}.</strong> {{occupation1.name}}
+        </div>
 
-        <!-- LEVEL 1 -->
-        <span data-ng-repeat="occupation1 in occupations.children">
-          <li data-ng-click="toggle(occupation1.code)">
-            <strong>{{occupation1.code}}.</strong> {{occupation1.name}}
-          </li>
+        <!-- LEVEL 2 -->
+        <span data-ng-repeat="occupation2 in occupation1.children" data-ng-show="show[occupation1.code]">
 
-          <!-- LEVEL 2 -->
-          <span data-ng-repeat="occupation2 in occupation1.children" data-ng-show="show[occupation1.code]">
+          <div data-ng-click="toggle(occupation2.code)">
+            <strong>{{occupation2.code}}.</strong> {{occupation2.name}}
+          </div>
 
-            <li data-ng-click="toggle(occupation2.code)">
-              <strong>{{occupation2.code}}.</strong> {{occupation2.name}}
-            </li>
+          <!-- LEVEL 3 -->
+          <span data-ng-repeat="occupation3 in occupation2.children" data-ng-show="show[occupation2.code]">
 
-            <!-- LEVEL 3 -->
-            <span data-ng-repeat="occupation3 in occupation2.children" data-ng-show="show[occupation2.code]">
+            <div data-ng-click="toggle(occupation3.code)">
+              <strong>{{occupation3.code}}.</strong> {{occupation3.name}}
+            </div>
 
-              <li data-ng-click="toggle(occupation3.code)">
-                <strong>{{occupation3.code}}.</strong> {{occupation3.name}}
-              </li>
-
-              <!-- LEVEL 4 -->
-              <span data-ng-repeat="occupation4 in occupation3.children" data-ng-show="show[occupation3.code]">
-
-                <li data-ng-click="toggle(occupation4.code)">
-                  <strong>{{occupation4.code}}.</strong> {{occupation4.name}}
-                </li>
-
-              </span>
-
-            </span>
+            <!-- LEVEL 4 -->
+            <ion-list>
+              <ion-checkbox
+                data-ng-disabled="!!saving"
+                class="ion-checkbox__level1"
+                data-ng-click="toggleOccupation(unit)"
+                data-ng-checked="checked[unit.code]"
+                data-ng-show="show[occupation3.code]"
+                data-ng-repeat="unit in occupation3.children">
+                {{unit.name}}
+              </ion-checkbox>
+            </ion-list>
 
           </span>
 
         </span>
-      </ul>
+
+      </span>
 
       <div class="padding">
         <a data-ng-click="goToWork()" class="button button-block">{{ 'continue' | translate }}</a>
