@@ -6,7 +6,7 @@ angular.module('app').config(function ($translateProvider) {
     "hero_body": "Som nyanländ tar det tid innan du kan börja jobba. Genom att dela din nuvarande arbetsstatus och dina kompetenser även innan du har ett personnummer kan potentiella arbetsgivare få koll på att du finns och erbjuda praktikplatser.",
     "hero_button": "Berätta om dig själv",
 
-    "your_number": "Ditt nummer",
+    "your_number": "Mobilnummer (ex. 0731234567)",
 
     "about_title": "Det tar inte mer än en minut.",
     "about_body" : "Genom att synliggöra din kompetens kan fler passande arbetstillfällen skapas. Att registrera sig är frivilligt och du behöver inte uppge ditt namn. Däremot behöver vi veta att du inte lämnar uppgifterna fler gånger så du måste först ange ditt mobilnummer.",
