@@ -14,7 +14,7 @@ angular.module('app').controller('userProfileCtrl', function ($scope, UserServic
     return UserService
       .update(user)
       .then(function () {
-        return $state.go('user.workAreas', { userId: user.userId })
+        return $state.go('user.occupations', { userId: user.userId })
       })
       .catch(function (error) {
         alert(error)

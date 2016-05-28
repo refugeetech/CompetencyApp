@@ -29,7 +29,7 @@ angular.module('app').controller('phoneCtrl', function($scope, $state, UserServi
     return UserService
       .create(phoneNumber)
       .then(function (userId) {
-        return $state.go('user.occupations', { userId: $stateParams.userId })
+        return $state.go('user', { userId })
       })
       .catch(function (error) {
         console.log(error)
