@@ -19,6 +19,12 @@
       <ion-checkbox ng-model="user.looking_for_work">{{ 'seeking_job' | translate }}</ion-checkbox>
       <ion-list ng-show="user.looking_for_work">
         <ion-checkbox ng-model="user.looking_for_trainee_job">{{ 'accept_internship' | translate }}</ion-checkbox>
+      </ion-list>
+    </div>
+
+    <div class="card" ng-show="user.looking_for_work">
+      <ion-list>
+        <ion-checkbox ng-model="user.looking_for_trainee_job">{{ 'accept_internship' | translate }}</ion-checkbox>
         <ion-checkbox ng-model="user.have_lma_card">{{ 'have_lma_card' | translate }}</ion-checkbox>
         <input class="input-text margin-top-10" type="text" ng-show="user.have_lma_card" ng-model="user.lma_card_expiry" placeholder="{{ 'expiry_date' | translate }}">
         <ion-checkbox ng-show="user.lma_card_expiry" ng-model="user.has_work_permit_exception">{{ 'have_lma_card_exception' | translate }}</ion-checkbox>
@@ -58,13 +64,6 @@
         <div class="item range range-positive">
           <i class="icon ion-minus"></i>
           <input type="range" name="volume" ng-model="user.arabic"  min="0" max="100" >
-          <i class="icon ion-checkmark-circled"></i>
-        </div>
-
-        <label class="label-custom">{{ 'syrian' | translate }}</label>
-        <div class="item range range-positive">
-          <i class="icon ion-minus"></i>
-          <input type="range" name="volume" ng-model="user.syrian"  min="0" max="100" >
           <i class="icon ion-checkmark-circled"></i>
         </div>
 

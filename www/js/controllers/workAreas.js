@@ -1,6 +1,8 @@
-angular.module('app').controller('workAreasCtrl', function($scope, ProficiencyService, UserService, $state, $stateParams) {
+angular.module('app').controller('workAreasCtrl', function ($scope, ProficiencyService, UserService, $state, $stateParams) {
   $scope.user = []
   $scope.profs = []
+  $scope.children = []
+  $scope.loadedChildren = []
 
   var userId = $stateParams.userId
   UserService.get({ userId: userId }).then(function (data) {
@@ -11,28 +13,37 @@ angular.module('app').controller('workAreasCtrl', function($scope, ProficiencySe
           $scope.profs.push({
             id: d._source.id,
             name: d._source.namn,
-            selected: false,
-            children: [{
-              id: 1000 + d._source.id,
-              name: 'subcat' + 1000 + d._source.id,
-              selected: false
-            },
-            {
-              id: 1000 + d._source.id,
-              name: 'subcat' + 1000 + d._source.id,
-              selected: false
-            },
-            {
-              id: 1000 + d._source.id,
-              name: 'subcat' + 1000 + d._source.id,
-              selected: false
-            }]
+            parentId: 0,
+            selected: false
           })
         })
       }
       ensureSelected(data._source.professions)
     })
   })
+
+  $scope.loadChildren = function (parent) {
+    if ($scope.loadedChildren.indexOf(parent.id) > -1) {
+      return
+    }
+    $scope.loadedChildren.push(parent.id)
+    if (!parent.selected) {
+      return
+    }
+    ProficiencyService.query({ id: parent.id }).$promise.then(function (professions) {
+      if (professions) {
+        professions.map(function (d) {
+          $scope.children.push({
+            id: d._source.id,
+            name: d._source.namn,
+            parentId: parent.id,
+            selected: false
+          })
+        })
+      }
+      ensureSelected(professions)
+    })
+  }
 
   function ensureSelected (professions) {
     if (!professions) {
@@ -42,6 +53,10 @@ angular.module('app').controller('workAreasCtrl', function($scope, ProficiencySe
       $scope.profs.map(function (item) {
         if (item.id === selectedProfession.id) {
           item.selected = true
+          console.log('SEL', item.id, item.parentId)
+          if (item.parentId === 0) {
+            $scope.loadChildren(item)
+          }
         }
       })
     })
