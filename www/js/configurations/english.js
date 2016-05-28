@@ -23,6 +23,7 @@ angular.module('app').config(function ($translateProvider) {
     "man": "Man",
     "woman": "Woman",
     "availability_title": "I want and can work as",
+    "current_status" : "Your current migration status",
     "seeking_job": "Seeking job",
     "accept_internship": "Accept training (internship)",
     "have_lma_card": "Have LMA card",

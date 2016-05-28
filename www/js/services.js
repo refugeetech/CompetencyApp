@@ -68,13 +68,13 @@ angular.module('app.services', ['ngResource'])
 
 .factory('cities', [function () {
   return [
-    'Stockholm',
-    'Göteborg',
-    'Malmö',
-    'Uppsala',
-    'Linköping',
-    'Västerås',
-    'Örebro',
+    'Stockholm, ',
+    'Göteborg, ',
+    'Malmö, ',
+    'Uppsala, ',
+    'Linköping, ',
+    'Västerås, ',
+    'Örebro, ',
     'Helsingborg, Skåne',
     'Norrköping, Östergötland',
     'Jönköping, Jönköping',
@@ -362,5 +362,7 @@ angular.module('app.services', ['ngResource'])
     return str.split(', ')
   }).sort(function (a, b) {
     return a[1] - b[1]
+  }).map(function (arr){
+    return arr.join(', ')
   })
 }])

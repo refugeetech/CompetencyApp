@@ -18,6 +18,7 @@ angular.module('app').config(function ($translateProvider) {
     'man': 'آقا هستم',
     'woman': 'خانم هستم',
     'availability_title': 'من می توانم به عنوان ... کار بکنم',
+    "current_status" : "Your current status",
     'seeking_job': 'جستجوی کار',
     'accept_internship': 'پذیرفتن کار موقت',
     'have_lma_card': 'LMA داری کارت ',

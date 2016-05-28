@@ -23,6 +23,7 @@ angular.module('app').config(function ($translateProvider) {
     "man": "Man",
     "woman": "Kvinna",
     "availability_title": "Jag kan och vill jobba som",
+    "current_status" : "Din jobbstatus",
     "seeking_job": "Söker ett arbete",
     "accept_internship": "Accepterar praktikplats",
     "have_lma_card": "Har LMA-kort",
