@@ -1,14 +1,10 @@
 angular.module('app').controller('occupationsCtrl', function($scope, $state, UserService, AuthService, $translate, OccupationService, $stateParams) {
   'use strict'
 
-  $scope.occupations = {}
-  $scope.show = {
-    1: true,
-    11: true,
-    111: true
-  }
-  $scope.checked = {}
+  $scope.show = {}
   $scope.user = {}
+  $scope.checked = {}
+  $scope.occupations = {}
 
   $scope.saving = false
 
@@ -60,7 +56,6 @@ angular.module('app').controller('occupationsCtrl', function($scope, $state, Use
       })
     }
 
-    console.log('SAFVE')
     UserService
       .update({
         userId: $stateParams.userId,
@@ -75,4 +70,7 @@ angular.module('app').controller('occupationsCtrl', function($scope, $state, Use
       })
   }
 
+  $scope.goNext = function () {
+    return $state.go('user.thankYou', { userId: $stateParams.userId })
+  }
 })
