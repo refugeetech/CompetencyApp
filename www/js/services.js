@@ -358,5 +358,9 @@ angular.module('app.services', ['ngResource'])
     'Dorotea, Västerbotten',
     'Sorsele, Västerbotten',
     'Bjurholm, Västerbotten'
-  ]
+  ].map(function (str) {
+    return str.split(', ')
+  }).sort(function (a, b) {
+    return a[1] - b[1]
+  })
 }])
