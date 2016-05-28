@@ -4,15 +4,8 @@ angular.module('app.directives', [])
   return {
     restrict: 'E',
     scope: {
-      items: '='
+      item: '='
     },
-    templateUrl: '/templates/directives/occupationGroup.html',
-    link: function (scope, element, attributes) {
-      console.log('huh', scope.items)
-      if (!!scope.items) {
-        element.append('hey')
-        //$compile(element.contents())(scope)
-      }
-    }
+    templateUrl: '/templates/directives/occupationGroup.html'
   }
 }]);

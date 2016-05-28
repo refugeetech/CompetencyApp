@@ -5,24 +5,24 @@
         {{ 'occupations_label' | translate }}
       </div>
 
+      <ul>
       <span data-ng-repeat="occupation1 in occupations.children">
-        {{occupation1.name}}
+        <li><strong>{{occupation1.code}}.</strong> {{occupation1.name}}</li>
+        <br />
         <span data-ng-repeat="occupation2 in occupation1.children">
-          {{occupation2.name}}
+          <li><strong>{{occupation2.code}}.</strong> {{occupation2.name}}</li>
           <span data-ng-repeat="occupation3 in occupation2.children">
-            {{occupation3.name}}
+            <li><strong>{{occupation3.code}}.</strong> {{occupation3.name}}</li>
             <span data-ng-repeat="occupation4 in occupation3.children">
-              {{occupation4.name}}
+              <li><strong>{{occupation4.code}}.</strong> {{occupation4.name}}</li>
             </span>
+            <br />
           </span>
+          <br />
         </span>
+        <br />
       </span>
-
-      ----------
-
-      <span data-ng-repeat="occupation in occupations.children">
-        <o c c upation-group items="occupation" />
-      </span>
+      </ul>
       <div class="padding">
         <a data-ng-click="goToWork()" class="button button-block">{{ 'continue' | translate }}</a>
       </div>
