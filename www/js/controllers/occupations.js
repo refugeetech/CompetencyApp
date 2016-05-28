@@ -61,36 +61,6 @@ angular.module('app').controller('occupationsCtrl', function($scope, $state, Use
         console.log('error', error)
         alert('Sorry! An error occurred.')
       })
-
-    /*
-    $scope.saving = true
-    var occu = {
-      code: occupation.code,
-      name: occupation.name
-    }
-    if (!$scope.user.occupations) {
-      $scope.user.occupations = []
-    }
-    var index = $scope.user.occupations.indexOf(occu)
-    console.log('index', index, occu)
-    if (index > -1) {
-      $scope.user.occupations.splice(index, 1)
-    } else {
-      $scope.user.occupations.push(occu)
-    }
-    UserService
-      .update({
-        userId: $stateParams.userId,
-        occupations: $scope.user.occupations
-      })
-      .then(function () {
-        $scope.saving = false
-      })
-      .catch(function (error) {
-        console.log('error', error)
-        alert('Sorry! An error occurred.')
-      })
-    */
   }
 
 })
