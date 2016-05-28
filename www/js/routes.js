@@ -12,6 +12,7 @@ angular.module('app.routes', [])
       templateUrl: 'templates/phone.html',
       controller: 'phoneCtrl'
     })
+
     .state('user', {
       url: '/user/:userId',
       templateUrl: 'templates/userProfile.html',
@@ -23,15 +24,23 @@ angular.module('app.routes', [])
       templateUrl: 'templates/workAreas.html',
       controller: 'workAreasCtrl'
     })
+
     .state('user.work', {
       url: '/work',
       templateUrl: 'templates/work.html',
       controller: 'workCtrl'
     })
+
     .state('user.thankYou', {
       url: '/thanks',
       templateUrl: 'templates/thankYou.html',
       controller: 'thankYouCtrl'
+    })
+
+    .state('user.occupations', {
+      url: '/occupations',
+      templateUrl: 'templates/occupations.html',
+      controller: 'occupationsCtrl'
     })
 
   // if none of the above states are matched, use this as the fallback

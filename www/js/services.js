@@ -51,6 +51,13 @@ angular.module('app.services', ['ngResource'])
   )
 })
 
+.service('OccupationService', function ($resource, API) {
+  return $resource(
+    API.BaseUrl + '/occupations',
+    {'query': { method: 'GET', isArray: true }}
+  )
+})
+
 .service('UserCountService', function ($resource, API) {
   return $resource(
     API.BaseUrl + '/users/count',

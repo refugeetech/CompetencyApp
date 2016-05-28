@@ -53,7 +53,9 @@ angular.module('app').config(function ($translateProvider) {
     "thanks_body": "Fantastic! More people registering means more job chances will be. Help us through sharing us with your friends via Viber/facebook/ sms/whatsapp",
     "share_body": "I have registered my details on http://competency.se to quickly get jobs in Sweden. We need 1,000 people to start making difference. Sign up too! Read more on Competency.se",
 
-    "read_more": "Read more on Competency.se"
+    "read_more": "Read more on Competency.se",
+
+    "occupations_label": "Choose occupations"
 
   });
 });
