@@ -47,8 +47,20 @@ angular.module('app').controller('occupationsCtrl', function($scope, $state, Use
       code: occupation.code,
       name: occupation.name
     }
-    $scope.user.occupations.push(occu)
 
+    if ($scope.checked[occu.code]) {
+      $scope.user.occupations.push(occu)
+    } else {
+      var index = 0
+      $scope.user.occupations.map(function (rmOccupations) {
+        if (rmOccupations.code === occu.code) {
+          $scope.user.occupations.splice(index, 1)
+        }
+        index++
+      })
+    }
+
+    console.log('SAFVE')
     UserService
       .update({
         userId: $stateParams.userId,
