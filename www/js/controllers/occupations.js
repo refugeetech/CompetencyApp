@@ -19,6 +19,9 @@ angular.module('app').controller('occupationsCtrl', function($scope, $state, Use
       $scope.occupations = occupations
     })
     .then(function () {
+      if (!$scope.user.occupations) {
+        $scope.user.occupations = []
+      }
       $scope.user.occupations.map(function (occupation) {
         $scope.checked[occupation.code] = true
       })
