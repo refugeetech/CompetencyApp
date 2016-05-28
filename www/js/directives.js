@@ -7,8 +7,12 @@ angular.module('app.directives', [])
       items: '='
     },
     templateUrl: '/templates/directives/occupationGroup.html',
-    link: function () {
-      console.log('huh')
+    link: function (scope, element, attributes) {
+      console.log('huh', scope.items)
+      if (!!scope.items) {
+        element.append('hey')
+        //$compile(element.contents())(scope)
+      }
     }
   }
 }]);
