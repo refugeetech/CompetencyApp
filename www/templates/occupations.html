@@ -4,45 +4,59 @@
       <div class="card-header">
         {{ 'occupations_label' | translate }}
       </div>
-
-      <!-- LEVEL 1 -->
-      <span data-ng-repeat="occupation1 in occupations.children">
-        <div data-ng-click="toggle(occupation1.code)">
-          <strong>{{occupation1.code}}.</strong> {{occupation1.name}}
-        </div>
-
-        <!-- LEVEL 2 -->
-        <span data-ng-repeat="occupation2 in occupation1.children" data-ng-show="show[occupation1.code]">
-
-          <div data-ng-click="toggle(occupation2.code)">
-            <strong>{{occupation2.code}}.</strong> {{occupation2.name}}
-          </div>
-
-          <!-- LEVEL 3 -->
-          <span data-ng-repeat="occupation3 in occupation2.children" data-ng-show="show[occupation2.code]">
-
-            <div data-ng-click="toggle(occupation3.code)">
-              <strong>{{occupation3.code}}.</strong> {{occupation3.name}}
+      <ion-list>
+        <ion-item data-ng-repeat="occupation1 in occupations.children">
+          <ion-checkbox
+            data-ng-disabled="!!saving"
+            data-ng-click="toggleOccupation(occupation1)"
+            data-ng-checked="checked[occupation1.code]">
+            <div>
+              <strong>{{occupation1.code}}.</strong> {{occupation1.name}}
             </div>
+          </ion-checkbox>
 
-            <!-- LEVEL 4 -->
-            <ion-list>
+          <ion-list data-ng-show="show[occupation1.code]">
+            <ion-item data-ng-repeat="occupation2 in occupation1.children" data-ng-show="show[occupation1.code]">
               <ion-checkbox
                 data-ng-disabled="!!saving"
-                class="ion-checkbox__level1"
-                data-ng-click="toggleOccupation(unit)"
-                data-ng-checked="checked[unit.code]"
-                data-ng-show="show[occupation3.code]"
-                data-ng-repeat="unit in occupation3.children">
-                {{unit.name}}
+                data-ng-click="toggleOccupation(occupation2)"
+                data-ng-checked="checked[occupation2.code]">
+                <div>
+                  <strong>{{occupation2.code}}.</strong> {{occupation2.name}}
+                </div>
               </ion-checkbox>
-            </ion-list>
 
-          </span>
+              <ion-list data-ng-show="show[occupation2.code]">
+                <ion-item data-ng-repeat="occupation3 in occupation2.children">
+                  <ion-checkbox
+                    data-ng-disabled="!!saving"
+                    data-ng-click="toggleOccupation(occupation3)"
+                    data-ng-checked="checked[occupation3.code]">
+                    <div>
+                      <strong>{{occupation3.code}}.</strong> {{occupation3.name}}
+                    </div>
+                  </ion-checkbox>
 
-        </span>
+                  <ion-list data-ng-show="show[occupation3.code]">
+                    <ion-item data-ng-repeat="unit in occupation3.children">
+                      <ion-checkbox
+                        data-ng-disabled="!!saving"
+                        data-ng-click="toggleOccupation(unit)"
+                        data-ng-checked="checked[unit.code]">
+                        <div>
+                          <strong>{{unit.code}}.</strong> {{unit.name}}
+                        </div>
+                      </ion-checkbox>
+                    </ion-item>
+                  </ion-list>
 
-      </span>
+                </ion-item>
+              </ion-list>
+            </ion-item>
+          </ion-list>
+
+        </ion-item>
+      </ion-list>
 
       <div class="padding">
         <a data-ng-click="goNext()" class="button button-block">{{ 'continue' | translate }}</a>
