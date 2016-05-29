@@ -1,5 +1,5 @@
 angular.module('app').service('API', function () {
   return {
-    BaseUrl: 'http://api.competency.se'
+    BaseUrl: 'http://localhost:1337'
   }
 })
