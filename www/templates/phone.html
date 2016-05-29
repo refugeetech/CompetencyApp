@@ -11,7 +11,7 @@
           id="phoneNumber"
           ng-model="phoneNumber"
           placeholder="{{ 'your_number' | translate }}"
-          type="text" />
+          type="tel" />
       </form>
       <div class="error" ng-show="errors.phoneNumberMissing">{{ 'phone_error_missing' | translate }}</div>
       <div class="error" ng-show="errors.phoneNumberBadFormat">{{ 'phone_error_malformed' | translate }}</div>
