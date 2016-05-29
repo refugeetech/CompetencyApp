@@ -10,9 +10,9 @@
             data-ng-disabled="!!saving"
             data-ng-click="toggleOccupation(occupation1)"
             data-ng-checked="checked[occupation1.code]">
-            <div>
-              <strong>{{occupation1.code}}.</strong> {{occupation1.name}}
-            </div>
+
+              {{occupation1.name}}
+
           </ion-checkbox>
 
           <ion-list data-ng-show="show[occupation1.code]">
@@ -21,9 +21,7 @@
                 data-ng-disabled="!!saving"
                 data-ng-click="toggleOccupation(occupation2)"
                 data-ng-checked="checked[occupation2.code]">
-                <div>
-                  <strong>{{occupation2.code}}.</strong> {{occupation2.name}}
-                </div>
+                  {{occupation2.name}}
               </ion-checkbox>
 
               <ion-list data-ng-show="show[occupation2.code]">
@@ -32,9 +30,7 @@
                     data-ng-disabled="!!saving"
                     data-ng-click="toggleOccupation(occupation3)"
                     data-ng-checked="checked[occupation3.code]">
-                    <div>
-                      <strong>{{occupation3.code}}.</strong> {{occupation3.name}}
-                    </div>
+                      {{occupation3.name}}
                   </ion-checkbox>
 
                   <ion-list data-ng-show="show[occupation3.code]">
@@ -43,9 +39,9 @@
                         data-ng-disabled="!!saving"
                         data-ng-click="toggleOccupation(unit)"
                         data-ng-checked="checked[unit.code]">
-                        <div>
-                          <strong>{{unit.code}}.</strong> {{unit.name}}
-                        </div>
+
+                          {{unit.name}}
+
                       </ion-checkbox>
                     </ion-item>
                   </ion-list>
