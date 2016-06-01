@@ -1,6 +1,11 @@
 angular.module('app.directives', [])
 
-.directive('blankDirective', [function(){
-
+.directive('occupationGroup', [function() {
+  return {
+    restrict: 'E',
+    scope: {
+      item: '='
+    },
+    templateUrl: '/templates/directives/occupationGroup.html'
+  }
 }]);
-

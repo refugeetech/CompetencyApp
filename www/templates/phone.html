@@ -15,11 +15,6 @@
       </form>
       <div class="error" ng-show="errors.phoneNumberMissing">{{ 'phone_error_missing' | translate }}</div>
       <div class="error" ng-show="errors.phoneNumberBadFormat">{{ 'phone_error_malformed' | translate }}</div>
-      <a
-        class="button button-block"
-        ng-click="login(phoneNumber)">
-        {{ 'continue' | translate }}
-      </a>
     </div>
     <div class="card">
       <label class="label-custom">{{ 'language' | translate }}</label>
@@ -27,5 +22,12 @@
       <ion-radio ng-model="language" ng-value="'sv'" data-ng-click="changeLanguage('sv')">{{ 'swedish' | translate }}</ion-radio>
       <ion-radio ng-model="language" ng-value="'fa'" data-ng-click="changeLanguage('fa')">{{ 'farsi' | translate }}</ion-radio>
     </div>
+    <div class="card">
+      <a
+        class="button button-block"
+        ng-click="login(phoneNumber)">
+        {{ 'continue' | translate }}
+      </a>
+     </div>
   </ion-content>
 </ion-view>

@@ -5,15 +5,20 @@
         {{ 'skills_label' | translate }}
       </div>
       <ion-list>
-        <span data-ng-repeat="prof in profs">
-        <ion-checkbox class="ion-checkbox__level0" data-ng-checked="prof.selected" data-ng-model="prof.selected" data-ng-click="loadChildren(prof)">{{prof.name}}</ion-checkbox>
-          <span data-ng-show="prof.selected">
+        <span data-ng-repeat="prof in proficiencies">
+          <ul class="work-list">
+            <li data-ng-checked="false" data-ng-click="loadProficiencies(prof.id, prof.namn)">
+              {{prof.namn}}
+            </li>
+          </ul>
+          <span data-ng-show="show.indexOf(prof.id) > -1">
             <ion-checkbox
               class="ion-checkbox__level1"
-              data-ng-checked="child.selected"
-              data-ng-model="child.selected"
-              data-ng-repeat="child in children | filter:{parentId:prof.id}">
-              {{child.name}}
+              data-ng-checked="userProficiencies[prof.namn][childProficiency.namn]"
+              data-ng-model="userProficiencies[prof.namn][childProficiency.namn]"
+              data-ng-if="!!childProficiency.namn"
+              data-ng-repeat="childProficiency in proficiencies[prof.namn]">
+              {{childProficiency.namn}}
             </ion-checkbox>
           </span>
         </span>
