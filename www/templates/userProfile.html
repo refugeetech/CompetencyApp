@@ -37,7 +37,9 @@
       <label class="item item-input item-select">
         <select ng-model="user.location">
           <option value="" selected>--{{ 'location_pick_label' | translate }}--</option>
-          <option ng-repeat="city in cities">{{city}}</option>
+          <optgroup ng-repeat="(region, locations) in cities" label="{{region || 'Big cities'}}">
+            <option ng-repeat="location in locations" ng-value="location.value">{{location.city}}</option>
+          </optgroup>
         </select>
       </label>
       <ion-checkbox ng-model="user.can_move">{{ 'can_move_label' | translate }}</ion-checkbox>
