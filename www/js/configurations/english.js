@@ -34,6 +34,7 @@ angular.module('app').config(function ($translateProvider) {
     "location_label": "Where do you live right now?",
     "location_pick_label": "Pick city",
     "can_move_label": "Can consider moving",
+    "self_employed": "Want to start a company",
 
     "language": "Language",
     "languages_label": "What languages do you speak? And how well?",
