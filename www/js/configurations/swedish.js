@@ -27,7 +27,7 @@ angular.module('app').config(function ($translateProvider) {
     "seeking_job": "Söker ett arbete",
     "accept_internship": "Accepterar praktikplats",
     "have_lma_card": "Har LMA-kort",
-    "have_lma_card_exception": "LMA-kortet är markerat med 7-AT-UND",
+    "have_lma_card_exception": "LMA-kortet är markerat med AT-UND (nr 7)",
     "expiry_date": "Utgångsdatum",
     "have_social_security_id": "Har personnummer",
 
