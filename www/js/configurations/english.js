@@ -6,12 +6,12 @@ angular.module('app').config(function ($translateProvider) {
     "hero_body": "As a newcomer, it takes time before you can start working. By sharing your current job status and your skills even before you have a social security number, maybe potential employers can get to see you and offer you internships",
     "hero_button": "Tell about yourself",
 
-    "your_number": "Your Swedish number (ex. 0731234567)",
+    "your_number": "0731234567",
 
     "about_title": "It does not take more than a minute.",
     "about_body" : "Visualizing your skills can get more suitable jobs created. Registering yourself is optional, and you don`t need to provide your name. However, we need to know that you do not double register yourself, so we need your phone number.",
 
-    "phone_label": "Please fill in your phone number",
+    "phone_label": "Please fill in your mobile number",
     "continue": "Continue",
 
     "phone_error_missing": "Phone number missing",
@@ -36,7 +36,7 @@ angular.module('app').config(function ($translateProvider) {
     "can_move_label": "Can consider moving",
 
     "language": "Language",
-    "languages_label": "What languages do you speak? And how good?",
+    "languages_label": "What languages do you speak? And how well?",
 
     "swedish": "Swedish",
     "english": "English",
