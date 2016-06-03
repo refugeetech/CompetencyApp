@@ -22,17 +22,17 @@ $font-family-sans-serif:          "Lato", "Helvetica Neue", "Roboto", "Segoe UI"
 $font-family-light-sans-serif:    "Lato", "HelveticaNeue-Light", "Roboto-Light", "Segoe UI-Light", sans-serif-light !default;
 $headings-font-weight:            bold;
 
-$stable:  #BBCDF3;
+$stable:  #bbcdf3;
 $positive: #9c27b0;
-$positive-light: #FA7577;
+$positive-light: #fa7577;
 
 $button-stable-text: #fff;
 
-$border-radius-base:              0px;
-$border-radius-large:             0px;
-$border-radius-small:             0px;
+$border-radius-base: 0;
+$border-radius-large: 0;
+$border-radius-small: 0;
 
-$content-padding:                 20px ;
+$content-padding: 20px;
 
 // $input-color-placeholder:        #888;
 
@@ -49,7 +49,7 @@ h1 {
 }
 
 h2 {
-  background: #EBEBEB;
+  background: #ebebeb;
   font-size: 20px;
   padding: 20px 30px;
 }
@@ -59,8 +59,9 @@ h2 {
   border-radius: none !important;
 }
 
-input[type="text"], label.item {
-  background: #EBEBEB;
+input[type="text"],
+label.item {
+  background: #ebebeb;
   border: none;
 }
 
@@ -107,7 +108,7 @@ input[type="checkbox"] {
 .card {
   background: #fff;
   border-radius: 0;
-  box-shadow: 0 1px 2px rgba(33, 33, 33, .2);
+  box-shadow: 0 1px 2px rgba(33, 33, 33, 0.2);
   margin: 0;
   padding: 30px;
 
@@ -126,19 +127,24 @@ input[type="checkbox"] {
 }
 
 /* General
---------------------------------------------------*/
+-------------------------------------------------- */
 .pane {
   background: #f4f5f6;
 }
 
 .divider {
-  background: rgba(33, 33, 33, .2);
+  background: rgba(33, 33, 33, 0.2);
   height: 1px;
   margin-bottom: 20px;
   margin-top: 20px;
 }
 
 .scroll-content .padding {
+  &.scroll {
+    margin: 0 auto;
+    max-width: 600px;
+  }
+
   .card:not(:last-child) {
     margin-bottom: 20px;
   }
@@ -149,14 +155,14 @@ input[type="checkbox"] {
 }
 
 /* Header
---------------------------------------------------*/
+-------------------------------------------------- */
 .bar-header {
   background: #f7f7f7;
   color: #0e1f26;
 }
 
 /* Form
---------------------------------------------------*/
+-------------------------------------------------- */
 .list {
   margin-bottom: 10px;
 }
@@ -175,7 +181,7 @@ input[type="checkbox"] {
 
 input.input-text {
   background: none;
-  border-bottom: 1px solid rgba(33, 33, 33, .2);
+  border-bottom: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 0;
   font-size: 16px;
   padding: 0;
@@ -191,7 +197,7 @@ input.input-text {
   padding: 0;
 
   select {
-    border: 1px solid rgba(33, 33, 33, .2);
+    border: 1px solid rgba(33, 33, 33, 0.2);
     border-radius: 0;
     direction: ltr;
     max-width: 100%;
@@ -310,7 +316,7 @@ textarea {
 }
 
 /* Errors
---------------------------------------------------*/
+-------------------------------------------------- */
 .error {
   background: $positive;
   color: #fff;
@@ -332,6 +338,6 @@ ul.work-list {
 ul.work-list li {
   font-family: Lato, 'Helvetica Neue', Roboto, 'Segoe UI', sans-serif;
   font-size: 18px;
-  color: #444444;
+  color: #444;
   margin-top: 6px;
 }
