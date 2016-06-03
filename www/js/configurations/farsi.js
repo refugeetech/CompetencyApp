@@ -10,7 +10,7 @@ angular.module('app').config(function ($translateProvider) {
     'about_body': '  با نمایان کردن توانایی های خود احتمال دریافت کار مناسب تر بالا می رود. ثبت نام اجباری نیست و نیازی به اشتراک گذاشتن نام خود نیز نیستید. اما برای اطمینان یافتن از اینکه دوبار خود را ثبت نکردید، شماره ی تماس شما را نیاز داریم',
 
     'phone_label': 'خواهشمندیم شماره ی تماس خود را ثبت کنید',
-    'your_number': 'Your Swedish number (ex. 0731234567)',
+    'your_number': '0731234567',
     'continue': 'ادامه',
 
     'age_label': 'سن',
@@ -18,7 +18,7 @@ angular.module('app').config(function ($translateProvider) {
     'man': 'آقا هستم',
     'woman': 'خانم هستم',
     'availability_title': 'من می توانم به عنوان ... کار بکنم',
-    "current_status" : "Your current status",
+    'current_status': 'Your current status',
     'seeking_job': 'جستجوی کار',
     'accept_internship': 'پذیرفتن کار موقت',
     'have_lma_card': 'LMA داری کارت ',
