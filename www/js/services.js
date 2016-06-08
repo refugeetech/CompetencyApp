@@ -376,15 +376,7 @@ angular.module('app.services', ['ngResource'])
     return {
       value: arr.join(', '),
       city: arr[0],
-      region: arr[1]
+      region: arr[1] || 'Big cities'
     }
   })
-  .reduce(function (a, b) {
-    var key = b.region
-    if (!a[key]) {
-      a[key] = []
-    }
-    a[key].push(b)
-    return a
-  }, {})
 }])

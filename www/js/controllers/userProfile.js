@@ -1,5 +1,6 @@
 angular.module('app').controller('userProfileCtrl', function ($scope, UserService, $state, $stateParams, cities) {
   $scope.user = {}
+
   $scope.cities = cities
 
   var user = UserService
@@ -10,17 +11,16 @@ angular.module('app').controller('userProfileCtrl', function ($scope, UserServic
       }
 
       if (result._source.location) {
-        var location = result._source.location.split(', ')
-        $scope.user.location = {
-          value: result._source.location,
-          city: location[0],
-          region: location[1]
-        }
+        $scope.user.location = cities.filter(function (x) {
+          return x.value === result._source.location
+        })[0]
       }
+
       $scope.user.birthDate = new Date($scope.user.birthDate)
     })
 
   $scope.updateProfile = function (user) {
+    user.location = user.location ? user.location.value : ''
     user.userId = $stateParams.userId
     return UserService
       .update(user)

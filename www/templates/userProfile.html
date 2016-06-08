@@ -36,12 +36,11 @@
     <div class="card">
       <label class="label-custom">{{ 'location_label' | translate }}</label>
       <label class="item item-input item-select">
-        <select ng-model="user.location">
-          <option value="" selected>--{{ 'location_pick_label' | translate }}--</option>
-          <optgroup ng-repeat="(region, locations) in cities" label="{{region || 'Big cities'}}">
-            <option ng-repeat="location in locations" ng-value="location.value">{{location.city}}</option>
-          </optgroup>
-        </select>
+
+         <select ng-model="user.location"
+          ng-options="location.city group by location.region for location in cities"
+          ></select>
+
       </label>
       <ion-checkbox ng-model="user.can_move">{{ 'can_move_label' | translate }}</ion-checkbox>
     </div>
