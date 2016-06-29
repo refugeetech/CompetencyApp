@@ -23,6 +23,7 @@ angular.module('app').controller('occupationsCtrl', function($scope, $state, Use
         $scope.user.occupations = []
       }
       $scope.user.occupations.map(function (occupation) {
+        $scope.show[occupation.code] = true
         $scope.checked[occupation.code] = true
       })
     })
@@ -37,6 +38,7 @@ angular.module('app').controller('occupationsCtrl', function($scope, $state, Use
 
   $scope.toggleOccupation = function (occupation) {
     $scope.chk(occupation.code)
+    $scope.toggle(occupation.code)
 
     if (!$scope.user.occupations) {
       $scope.user.occupations = []

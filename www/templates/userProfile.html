@@ -19,6 +19,7 @@
       <ion-checkbox ng-model="user.looking_for_work">{{ 'seeking_job' | translate }}</ion-checkbox>
       <ion-list ng-show="user.looking_for_work">
         <ion-checkbox ng-model="user.looking_for_trainee_job">{{ 'accept_internship' | translate }}</ion-checkbox>
+        <ion-checkbox ng-model="user.self_employed">{{ 'self_employed' | translate }}</ion-checkbox>
       </ion-list>
     </div>
 
@@ -27,7 +28,7 @@
         <label class="label-custom">{{ 'current_status' | translate }}</label>
         <ion-checkbox ng-model="user.have_lma_card">{{ 'have_lma_card' | translate }}</ion-checkbox>
         <input class="input-text margin-top-10" type="date" ng-show="user.have_lma_card" ng-model="user.lma_card_expiry" placeholder="{{ 'expiry_date' | translate }}">
-        <ion-checkbox ng-show="user.lma_card_expiry" ng-model="user.has_work_permit_exception">{{ 'have_lma_card_exception' | translate }}</ion-checkbox>
+        <ion-checkbox ng-show="user.have_lma_card" ng-model="user.has_work_permit_exception">{{ 'have_lma_card_exception' | translate }}</ion-checkbox>
         <ion-checkbox ng-model="user.have_personal_number">{{ 'have_social_security_id' | translate }}</ion-checkbox>
       </ion-list>
     </div>
@@ -35,10 +36,11 @@
     <div class="card">
       <label class="label-custom">{{ 'location_label' | translate }}</label>
       <label class="item item-input item-select">
-        <select ng-model="user.location">
-          <option value="" selected>--{{ 'location_pick_label' | translate }}--</option>
-          <option ng-repeat="city in cities">{{city}}</option>
-        </select>
+
+         <select ng-model="user.location"
+          ng-options="location.city group by location.region for location in cities"
+          ></select>
+
       </label>
       <ion-checkbox ng-model="user.can_move">{{ 'can_move_label' | translate }}</ion-checkbox>
     </div>
@@ -49,65 +51,88 @@
         <label class="label-custom">{{ 'swedish' | translate }}</label>
         <div class="item range range-positive">
           <i class="icon ion-minus"></i>
-          <input type="range" name="volume" ng-model="user.swedish" steps="25" ng-value="'0'" min="0" max="100" >
+          <input type="range" name="volume" ng-model="user.swedish" ng-init="user.swedish='0'" steps="25" ng-value="'0'" min="0" max="100" >
           <i class="icon ion-checkmark-circled"></i>
         </div>
 
         <label class="label-custom">{{ 'english' | translate }}</label>
         <div class="item range range-positive">
           <i class="icon ion-minus"></i>
-          <input type="range" name="volume" ng-model="user.english" steps="25" ng-value="'0'" min="0" max="100" >
+          <input type="range" name="volume" ng-model="user.english" ng-init="user.english='0'" steps="25" ng-value="'0'" min="0" max="100" >
           <i class="icon ion-checkmark-circled"></i>
         </div>
 
         <label class="label-custom">{{ 'arabic' | translate }}</label>
         <div class="item range range-positive">
           <i class="icon ion-minus"></i>
-          <input type="range" name="volume" ng-model="user.arabic"  min="0" max="100" >
+          <input type="range" name="volume" ng-model="user.arabic" ng-init="user.arabic='0'" min="0" max="100" >
           <i class="icon ion-checkmark-circled"></i>
         </div>
 
         <label class="label-custom">{{ 'bosnian_serbian' | translate }}</label>
         <div class="item range range-positive">
           <i class="icon ion-minus"></i>
-          <input type="range" name="volume" ng-model="user.bosnian" steps="25"  ng-value="'0'" min="0" max="100" >
+          <input type="range" name="volume" ng-model="user.bosnian" steps="25" ng-init="user.bosnian='0'" min="0" max="100" >
           <i class="icon ion-checkmark-circled"></i>
         </div>
 
         <label class="label-custom">{{ 'persian' | translate }}</label>
         <div class="item range range-positive">
           <i class="icon ion-minus"></i>
-          <input type="range" name="volume" ng-model="user.persian" steps="25"  ng-value="'0'" min="0" max="100" >
+          <input type="range" name="volume" ng-model="user.persian" steps="25" ng-init="user.persian='0'" ng-value="'0'" min="0" max="100" >
           <i class="icon ion-checkmark-circled"></i>
         </div>
 
         <label class="label-custom">{{ 'albanian' | translate }}</label>
         <div class="item range range-positive">
           <i class="icon ion-minus"></i>
-          <input type="range" name="volume" ng-model="user.albanian" steps="25"  ng-value="'0'" min="0" max="100" >
+          <input type="range" name="volume" ng-model="user.albanian" steps="25" ng-init="user.albanian='0'" ng-value="'0'" min="0" max="100" >
           <i class="icon ion-checkmark-circled"></i>
         </div>
 
         <label class="label-custom">{{ 'somali' | translate }}</label>
         <div class="item range range-positive">
           <i class="icon ion-minus"></i>
-          <input type="range" name="volume" ng-model="user.soomaali" steps="25"  ng-value="'0'" min="0" max="100" >
+          <input type="range" name="volume" ng-model="user.soomaali" steps="25" ng-init="user.soomaali='0'" ng-value="'0'" min="0" max="100" >
           <i class="icon ion-checkmark-circled"></i>
         </div>
 
         <label class="label-custom">{{ 'russian' | translate }}</label>
         <div class="item range range-positive">
           <i class="icon ion-minus"></i>
-          <input type="range" name="volume" ng-model="user.russian" steps="25"  ng-value="'0'" min="0" max="100" >
+          <input type="range" name="volume" ng-model="user.russian" steps="25" ng-init="user.russian='0'" ng-value="'0'" min="0" max="100" >
           <i class="icon ion-checkmark-circled"></i>
         </div>
 
         <label class="label-custom">{{ 'dari' | translate }}</label>
         <div class="item range range-positive">
           <i class="icon ion-minus"></i>
-          <input type="range" name="volume" ng-model="user.dari" steps="25"  ng-value="'0'" min="0" max="100" >
+          <input type="range" name="volume" ng-model="user.dari" steps="25" ng-init="user.dari='0'" ng-value="'0'" min="0" max="100" >
           <i class="icon ion-checkmark-circled"></i>
         </div>
+
+        <label class="label-custom">{{ 'eritrean' | translate }}</label>
+        <div class="item range range-positive">
+          <i class="icon ion-minus"></i>
+          <input type="range" name="volume" ng-model="user.eritrean" steps="25" ng-init="user.eritrean='0'" ng-value="'0'" min="0" max="100" >
+          <i class="icon ion-checkmark-circled"></i>
+        </div>
+
+
+        <label class="label-custom">{{ 'pashtun' | translate }}</label>
+        <div class="item range range-positive">
+          <i class="icon ion-minus"></i>
+          <input type="range" name="volume" ng-model="user.pashtun" steps="25" ng-init="user.pashtun='0'" ng-value="'0'" min="0" max="100" >
+          <i class="icon ion-checkmark-circled"></i>
+        </div>
+
+        <label class="label-custom">{{ 'kurdish' | translate }}</label>
+        <div class="item range range-positive">
+          <i class="icon ion-minus"></i>
+          <input type="range" name="volume" ng-model="user.kurdish" steps="25" ng-init="user.kurdish='0'" ng-value="'0'" min="0" max="100" >
+          <i class="icon ion-checkmark-circled"></i>
+        </div>
+
       </div>
     </div>
 

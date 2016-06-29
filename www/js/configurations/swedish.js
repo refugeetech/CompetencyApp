@@ -6,7 +6,7 @@ angular.module('app').config(function ($translateProvider) {
     "hero_body": "Som nyanländ tar det tid innan du kan börja jobba. Genom att dela din nuvarande arbetsstatus och dina kompetenser även innan du har ett personnummer kan potentiella arbetsgivare få koll på att du finns och erbjuda praktikplatser.",
     "hero_button": "Berätta om dig själv",
 
-    "your_number": "Mobilnummer (ex. 0731234567)",
+    "your_number": "0731234567",
 
     "about_title": "Det tar inte mer än en minut.",
     "about_body" : "Genom att synliggöra din kompetens kan fler passande arbetstillfällen skapas. Att registrera sig är frivilligt och du behöver inte uppge ditt namn. Däremot behöver vi veta att du inte lämnar uppgifterna fler gånger så du måste först ange ditt mobilnummer.",
@@ -27,13 +27,14 @@ angular.module('app').config(function ($translateProvider) {
     "seeking_job": "Söker ett arbete",
     "accept_internship": "Accepterar praktikplats",
     "have_lma_card": "Har LMA-kort",
-    "have_lma_card_exception": "LMA-kortet är markerat med 7-AT-UND",
+    "have_lma_card_exception": "LMA-kortet är markerat med AT-UND (nr 7)",
     "expiry_date": "Utgångsdatum",
     "have_social_security_id": "Har personnummer",
 
     "location_label": "Var bor du just nu?",
     "location_pick_label": "Välj stad",
     "can_move_label": "Kan tänka mig att flytta",
+    "self_employed": "Vill starta eget",
 
     "language": "Språk",
     "languages_label": "Vilka språk kan du och hur bra?",

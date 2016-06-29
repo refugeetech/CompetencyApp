@@ -365,11 +365,18 @@ angular.module('app.services', ['ngResource'])
     'Dorotea, Västerbotten',
     'Sorsele, Västerbotten',
     'Bjurholm, Västerbotten'
-  ].map(function (str) {
+  ]
+  .map(function (str) {
     return str.split(', ')
-  }).sort(function (a, b) {
+  })
+  .sort(function (a, b) {
     return a[1] - b[1]
-  }).map(function (arr){
-    return arr.join(', ')
+  })
+  .map(function (arr) {
+    return {
+      value: arr.join(', '),
+      city: arr[0],
+      region: arr[1] || 'Big cities'
+    }
   })
 }])
