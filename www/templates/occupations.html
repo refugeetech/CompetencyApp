@@ -1,47 +1,43 @@
 <ion-view hide-nav-bar="false">
   <ion-content padding="true" class="">
-    <div class="card">
+    <div class="card spacious">
       <div class="card-header">
         {{ 'occupations_label' | translate }}
       </div>
       <ion-list>
-        <ion-item data-ng-repeat="occupation1 in occupations.children">
+        <ion-item class="item spacious" data-ng-repeat="occupation1 in occupations.children">
           <ion-checkbox
             data-ng-disabled="!!saving"
             data-ng-click="toggleOccupation(occupation1)"
             data-ng-checked="checked[occupation1.code]">
-
-              {{occupation1.name}}
-
+              ({{occupation1.code}}) {{occupation1.name}}
           </ion-checkbox>
 
           <ion-list data-ng-show="show[occupation1.code]">
-            <ion-item data-ng-repeat="occupation2 in occupation1.children" data-ng-show="show[occupation1.code]">
+            <ion-item class="spacious" data-ng-repeat="occupation2 in occupation1.children" data-ng-show="show[occupation1.code]">
               <ion-checkbox
                 data-ng-disabled="!!saving"
                 data-ng-click="toggleOccupation(occupation2)"
                 data-ng-checked="checked[occupation2.code]">
-                  {{occupation2.name}}
+                  ({{occupation2.code}}) {{occupation2.name}}
               </ion-checkbox>
 
               <ion-list data-ng-show="show[occupation2.code]">
-                <ion-item data-ng-repeat="occupation3 in occupation2.children">
+                <ion-item class="spacious" data-ng-repeat="occupation3 in occupation2.children">
                   <ion-checkbox
                     data-ng-disabled="!!saving"
                     data-ng-click="toggleOccupation(occupation3)"
                     data-ng-checked="checked[occupation3.code]">
-                      {{occupation3.name}}
+                      ({{occupation3.code}}) {{occupation3.name}}
                   </ion-checkbox>
 
                   <ion-list data-ng-show="show[occupation3.code]">
-                    <ion-item data-ng-repeat="unit in occupation3.children">
+                    <ion-item class="spacious" data-ng-repeat="unit in occupation3.children">
                       <ion-checkbox
                         data-ng-disabled="!!saving"
                         data-ng-click="toggleOccupation(unit)"
                         data-ng-checked="checked[unit.code]">
-
-                          {{unit.name}}
-
+                          ({{unit.code}}) {{unit.name}}
                       </ion-checkbox>
                     </ion-item>
                   </ion-list>
