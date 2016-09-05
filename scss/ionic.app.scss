@@ -321,11 +321,15 @@ textarea {
 
 .item {
   &.spacious {
-    padding: 0;
+    padding: 10px 0 10px 0;
     border-width: 0;
 
     .item-content {
       white-space: normal;
+    }
+
+    .checkbox {
+      padding-bottom: 2px;
     }
   }
 }
