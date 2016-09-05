@@ -123,6 +123,10 @@ input[type="checkbox"] {
     margin-bottom: 0;
     line-height: 1.5;
   }
+
+  &.spacious {
+    padding: 8px;
+  }
 }
 
 /* General
@@ -308,6 +312,19 @@ textarea {
   width: 100%;
   padding: 10px;
 }
+
+.item {
+  &.spacious {
+    padding: 0;
+    border-width: 0;
+
+    .item-content {
+      white-space: normal;
+    }
+  }
+}
+
+
 
 /* Errors
 --------------------------------------------------*/

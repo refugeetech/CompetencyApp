@@ -9155,6 +9155,8 @@ input[type="checkbox"] {
     color: #666;
     margin-bottom: 0;
     line-height: 1.5; }
+  .card.spacious {
+    padding: 8px; }
 
 /* General
 --------------------------------------------------*/
@@ -9298,6 +9300,12 @@ input[type="text"]:-moz-placeholder {
 textarea {
   width: 100%;
   padding: 10px; }
+
+.item.spacious {
+  padding: 0;
+  border-width: 0; }
+  .item.spacious .item-content {
+    white-space: normal; }
 
 /* Errors
 --------------------------------------------------*/
