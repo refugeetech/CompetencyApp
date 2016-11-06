@@ -1,15 +1,15 @@
 angular.module('app').service('API', function () {
   var baseUrl = 'http://'
-  var port = window.location.port
-  var hostname = window.location.hostname
 
-  if (port === 443) {
+  if (window.location.href.indexOf('https') > -1) {
+    // We are using ssl.
     baseUrl = 'https://'
   }
 
-  if (hostname.indexOf('competency') > -1) {
-    baseUrl += hostname.replace('app.', '')
+  if (window.location.hostname.indexOf('competency') > -1) {
+    baseUrl += window.location.hostname.replace('app.', 'api.')
   } else {
+    // Local dev fallback.
     baseUrl += 'localhost:1337'
   }
 
